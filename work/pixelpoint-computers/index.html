@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>PixelPoint Computers | Laptops, PCs & Accessories</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#f5f7fb; --card:#fff; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --blue:#2563eb; --blue-d:#1d4ed8; --cyan:#06b6d4; --wa:#25d366; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; overflow-x:clip; }
+  body { font-family:"Plus Jakarta Sans",system-ui,sans-serif; background:var(--bg); color:var(--ink); line-height:1.6; }
+  a { color:inherit; text-decoration:none; }
+  .wrap { width:min(1180px,100% - 32px); margin-inline:auto; }
+  h1,h2,h3 { line-height:1.1; letter-spacing:-.02em; }
+  .btn { display:inline-flex; align-items:center; gap:8px; padding:13px 22px; border-radius:10px; font-weight:700; font-size:.95rem; border:0; cursor:pointer; font-family:inherit; transition:.2s; }
+  .btn-blue { background:var(--blue); color:#fff; } .btn-blue:hover { background:var(--blue-d); }
+  .btn-light { background:#fff; color:var(--ink); border:1px solid var(--line); }
+  .btn-wa { background:var(--wa); color:#fff; }
+  .top { background:var(--ink); color:#cbd5e1; font-size:.82rem; text-align:center; padding:8px 16px; }
+  .top b { color:#fff; }
+  nav { background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:40; }
+  nav .wrap { display:flex; align-items:center; justify-content:space-between; height:68px; gap:16px; }
+  .logo { display:flex; align-items:center; gap:10px; font-weight:800; font-size:1.2rem; }
+  .logo i { width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg,var(--blue),var(--cyan)); display:grid; place-items:center; color:#fff; font-style:normal; font-size:1rem; }
+  .links { display:flex; gap:26px; font-weight:600; font-size:.93rem; color:var(--muted); }
+  .links a:hover { color:var(--blue); }
+  .hero { padding:64px 0; background:radial-gradient(900px 400px at 85% 10%, rgba(37,99,235,.14), transparent), radial-gradient(600px 300px at 10% 90%, rgba(6,182,212,.12), transparent); }
+  .hero .wrap { display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:center; }
+  .pill { display:inline-block; background:#dbeafe; color:var(--blue-d); font-weight:700; font-size:.8rem; padding:6px 12px; border-radius:999px; }
+  .hero h1 { font-size:clamp(2.4rem,5.5vw,3.8rem); margin:16px 0; font-weight:800; }
+  .hero h1 span { background:linear-gradient(90deg,var(--blue),var(--cyan)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .hero p { color:var(--muted); font-size:1.08rem; max-width:520px; }
+  .ctas { display:flex; gap:12px; flex-wrap:wrap; margin-top:28px; }
+  .trust { display:flex; gap:28px; margin-top:32px; flex-wrap:wrap; }
+  .trust b { display:block; font-size:1.5rem; }
+  .trust span { color:var(--muted); font-size:.85rem; }
+  .device { background:#fff; border-radius:22px; padding:26px; box-shadow:0 30px 70px rgba(15,23,42,.12); border:1px solid var(--line); position:relative; }
+  .screen { aspect-ratio:16/10; border-radius:12px; background:linear-gradient(135deg,#0f172a,#1e3a8a 60%,#0891b2); display:grid; place-items:center; color:#fff; text-align:center; padding:20px; }
+  .screen b { font-size:1.6rem; display:block; }
+  .base { height:14px; margin:0 -8% ; background:linear-gradient(#cbd5e1,#94a3b8); border-radius:0 0 14px 14px; }
+  .tagcard { position:absolute; right:-14px; top:-14px; background:var(--ink); color:#fff; padding:10px 14px; border-radius:12px; font-size:.82rem; font-weight:700; box-shadow:0 10px 30px rgba(0,0,0,.2); }
+  .section { padding:72px 0; }
+  .head { display:flex; justify-content:space-between; align-items:end; gap:20px; flex-wrap:wrap; margin-bottom:28px; }
+  .head h2 { font-size:clamp(1.8rem,4vw,2.4rem); font-weight:800; }
+  .head p { color:var(--muted); max-width:440px; }
+  .cats { display:grid; grid-template-columns:repeat(6,1fr); gap:14px; }
+  .cat { background:#fff; border:1px solid var(--line); border-radius:16px; padding:20px 14px; text-align:center; cursor:pointer; transition:.2s; }
+  .cat:hover { border-color:var(--blue); transform:translateY(-3px); box-shadow:0 10px 24px rgba(37,99,235,.1); }
+  .cat .ic { width:52px; height:52px; margin:0 auto 10px; border-radius:14px; background:#eff6ff; color:var(--blue); display:grid; place-items:center; }
+  .cat .ic svg { width:28px; height:28px; }
+  .cat b { font-size:.92rem; }
+  .filters { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:22px; }
+  .chip { padding:8px 16px; border-radius:999px; border:1px solid var(--line); background:#fff; font:600 .88rem inherit; font-family:inherit; cursor:pointer; color:var(--muted); }
+  .chip.on { background:var(--ink); color:#fff; border-color:var(--ink); }
+  .grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+  .prod { background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden; display:flex; flex-direction:column; transition:.2s; }
+  .prod:hover { box-shadow:0 14px 34px rgba(15,23,42,.1); transform:translateY(-3px); }
+  .thumb { aspect-ratio:4/3; background:linear-gradient(135deg,#eff6ff,#ecfeff); display:grid; place-items:center; color:var(--blue); position:relative; }
+  .thumb svg { width:42%; height:42%; }
+  .badge { position:absolute; left:12px; top:12px; background:var(--blue); color:#fff; font-size:.7rem; font-weight:800; padding:3px 8px; border-radius:6px; }
+  .prod .b { padding:16px; display:flex; flex-direction:column; flex:1; }
+  .prod small { color:var(--blue); font-weight:700; font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; }
+  .prod h4 { font-size:1rem; margin:4px 0; }
+  .spec { color:var(--muted); font-size:.82rem; }
+  .row { display:flex; justify-content:space-between; align-items:center; margin-top:auto; padding-top:14px; gap:8px; }
+  .price { font-weight:800; font-size:1.08rem; }
+  .prod .btn { padding:8px 12px; font-size:.8rem; }
+  .services { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  .svc { background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px; }
+  .svc .n { width:40px; height:40px; border-radius:10px; background:var(--ink); color:#fff; display:grid; place-items:center; font-weight:800; margin-bottom:14px; }
+  .svc h3 { font-size:1.08rem; margin-bottom:6px; }
+  .svc p { color:var(--muted); font-size:.9rem; }
+  .brands { display:flex; justify-content:space-around; flex-wrap:wrap; gap:24px; padding:28px; background:#fff; border:1px solid var(--line); border-radius:16px; font-weight:800; font-size:1.3rem; color:#94a3b8; letter-spacing:.04em; }
+  .build { background:linear-gradient(120deg,var(--ink),#1e3a8a); color:#fff; border-radius:24px; padding:48px; display:grid; grid-template-columns:1.2fr .8fr; gap:32px; align-items:center; }
+  .build h2 { font-size:clamp(1.8rem,4vw,2.4rem); margin-bottom:10px; }
+  .build p { color:#cbd5e1; }
+  form { display:grid; gap:10px; }
+  input, select { padding:12px 14px; border-radius:10px; border:0; font:inherit; font-size:.92rem; }
+  .contact { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .contact div { background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; }
+  .contact h3 { font-size:1rem; margin-bottom:4px; }
+  .contact p { color:var(--muted); font-size:.92rem; }
+  footer { padding:30px 0; color:var(--muted); font-size:.85rem; text-align:center; }
+  .wa { position:fixed; right:20px; bottom:20px; width:56px; height:56px; border-radius:50%; background:var(--wa); display:grid; place-items:center; color:#fff; border:0; cursor:pointer; box-shadow:0 10px 26px rgba(37,211,102,.4); z-index:50; }
+  .wa svg, .btn svg { width:18px; height:18px; } .wa svg { width:28px; height:28px; }
+  .toast { position:fixed; left:50%; bottom:26px; transform:translate(-50%,160%); background:var(--ink); color:#fff; padding:12px 18px; border-radius:10px; font-size:.9rem; transition:.3s; z-index:60; max-width:calc(100% - 32px); }
+  .toast.show { transform:translate(-50%,0); }
+  @media (max-width:960px) {
+    .hero .wrap, .build { grid-template-columns:1fr; }
+    .cats { grid-template-columns:repeat(3,1fr); }
+    .grid, .services { grid-template-columns:repeat(2,1fr); }
+    .contact { grid-template-columns:1fr; }
+    .links { display:none; }
+  }
+  @media (max-width:560px) {
+    .grid { gap:12px; }
+    .row { flex-direction:column; align-items:stretch; }
+    .services { grid-template-columns:1fr; }
+    .build { padding:28px; }
+    .tagcard { right:8px; }
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2Zm5.8 14.09c-.24.68-1.42 1.3-1.95 1.35-.5.05-.97.23-3.27-.68-2.77-1.09-4.52-3.93-4.66-4.11-.13-.18-1.11-1.48-1.11-2.83 0-1.34.7-2 .95-2.28.25-.27.54-.34.72-.34h.52c.17 0 .39-.06.61.46.23.55.77 1.9.84 2.04.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.7 1.16 1.51 1.88 1.04.93 1.91 1.21 2.18 1.35.27.14.43.11.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.23.61-.14.25.09 1.59.75 1.86.89.27.14.45.2.52.32.07.11.07.66-.17 1.33Z"/></symbol>
+  <symbol id="laptop" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></g></symbol>
+  <symbol id="pc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3" y="4" width="12" height="9" rx="1"/><path d="M9 13v3M6 17h6"/><rect x="17" y="4" width="4" height="14" rx="1"/><circle cx="19" cy="7" r=".6" fill="currentColor"/></g></symbol>
+  <symbol id="monitor" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="2" y="4" width="20" height="12" rx="1.5"/><path d="M12 16v4M8 20h8"/></g></symbol>
+  <symbol id="mouse" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="3" width="10" height="18" rx="5"/><path d="M12 3v6"/></g></symbol>
+  <symbol id="printer" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="1.5"/><path d="M6 14h12v7H6z"/></g></symbol>
+  <symbol id="tool" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M14.7 6.3a4 4 0 0 0 5.2 5.2l-8.6 8.6a2.1 2.1 0 0 1-3-3l8.6-8.6a4 4 0 0 0-5.2-5.2l2.5 2.5-.5 2.5-2.5.5-2.5-2.5"/></symbol>
+  <symbol id="head" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></g></symbol>
+</svg>
+
+<div class="top">💻 Genuine products with warranty · <b>Free delivery</b> within the city · Repair &amp; upgrade services</div>
+
+<nav>
+  <div class="wrap">
+    <a href="#" class="logo"><i>P</i>PixelPoint Computers</a>
+    <div class="links"><a href="#shop">Shop</a><a href="#services">Services</a><a href="#build">Build a PC</a><a href="#contact">Contact</a></div>
+    <a class="btn btn-wa" href="#" data-wa="Hi! I want to know about your laptops and prices."><svg><use href="#wa"/></svg>WhatsApp</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <span class="pill">Laptops · Gaming PCs · Accessories · Repair</span>
+      <h1>Your trusted <span>computer store</span> in town.</h1>
+      <p>Latest laptops, custom gaming PCs, monitors and accessories at the best prices. Ask for prices on WhatsApp and get expert advice before you buy.</p>
+      <div class="ctas">
+        <a href="#shop" class="btn btn-blue">Browse Products →</a>
+        <a href="#build" class="btn btn-light">Build Your PC</a>
+      </div>
+      <div class="trust">
+        <div><b>1 Year</b><span>Warranty on laptops</span></div>
+        <div><b>Same Day</b><span>Basic repairs</span></div>
+        <div><b>EMI</b><span>Options available</span></div>
+      </div>
+    </div>
+    <div class="device">
+      <div class="tagcard">🔥 New arrivals</div>
+      <div class="screen"><div><b>Back to School Offer</b>Free bag &amp; mouse with every laptop</div></div>
+      <div class="base"></div>
+    </div>
+  </div>
+</header>
+
+<section class="section" style="padding-top:24px">
+  <div class="wrap">
+    <div class="cats">
+      <div class="cat" data-go="Laptops"><div class="ic"><svg><use href="#laptop"/></svg></div><b>Laptops</b></div>
+      <div class="cat" data-go="Desktops"><div class="ic"><svg><use href="#pc"/></svg></div><b>Gaming PCs</b></div>
+      <div class="cat" data-go="Monitors"><div class="ic"><svg><use href="#monitor"/></svg></div><b>Monitors</b></div>
+      <div class="cat" data-go="Accessories"><div class="ic"><svg><use href="#mouse"/></svg></div><b>Accessories</b></div>
+      <div class="cat" data-go="Printers"><div class="ic"><svg><use href="#printer"/></svg></div><b>Printers</b></div>
+      <a class="cat" href="#services"><div class="ic"><svg><use href="#tool"/></svg></div><b>Repair</b></a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="shop" style="padding-top:24px">
+  <div class="wrap">
+    <div class="head"><h2>Popular Products</h2><p>Tap <b>Ask Price</b> to get the latest price and availability on WhatsApp.</p></div>
+    <div class="filters" id="filters"></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="section" id="services" style="background:#fff">
+  <div class="wrap">
+    <div class="head"><h2>Repair &amp; Services</h2><p>Bring your device to our service centre. Most repairs are done the same day.</p></div>
+    <div class="services">
+      <div class="svc"><div class="n">01</div><h3>Laptop &amp; PC Repair</h3><p>Screen, keyboard, battery and motherboard repair for all brands.</p></div>
+      <div class="svc"><div class="n">02</div><h3>Upgrades</h3><p>SSD and RAM upgrades to make your old computer fast again.</p></div>
+      <div class="svc"><div class="n">03</div><h3>Software &amp; OS</h3><p>Windows installation, drivers, antivirus and data backup.</p></div>
+      <div class="svc"><div class="n">04</div><h3>Office Setup</h3><p>Computers, printers and networking for offices and schools.</p></div>
+    </div>
+    <div class="brands" style="margin-top:28px"><span>DELL</span><span>HP</span><span>LENOVO</span><span>ASUS</span><span>ACER</span><span>MSI</span></div>
+  </div>
+</section>
+
+<section class="section" id="build">
+  <div class="wrap">
+    <div class="build">
+      <div>
+        <h2>Build your dream PC 🎮</h2>
+        <p>Tell us your budget and what you'll use it for, whether gaming, editing or office work. We'll suggest the best parts and assemble it for you.</p>
+      </div>
+      <form id="buildForm">
+        <input required placeholder="Your name">
+        <input required type="tel" placeholder="Phone number">
+        <select><option>Gaming</option><option>Video editing</option><option>Office / study</option></select>
+        <select><option>Budget: NPR 60,000 – 1,00,000</option><option>Budget: NPR 1,00,000 – 2,00,000</option><option>Budget: NPR 2,00,000+</option></select>
+        <button class="btn btn-blue" style="justify-content:center">Get Free Quote</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="head"><h2>Visit Our Store</h2></div>
+    <div class="contact">
+      <div><h3>📍 Location</h3><p>Main Road, near City Chowk<br>Google Map shown here</p></div>
+      <div><h3>📞 Call / WhatsApp</h3><p>98XXXXXXXX<br>Replies within minutes</p></div>
+      <div><h3>🕘 Opening Hours</h3><p>Sunday – Friday<br>9:00 AM – 7:00 PM</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 PixelPoint Computers · Concept design by Abhinav Sigdel</footer>
+
+<button class="wa" aria-label="WhatsApp" data-wa="Hi! I have a question about your products."><svg><use href="#wa"/></svg></button>
+<div class="toast" id="toast"></div>
+
+<script>
+  const P = [
+    { n:"Lenovo IdeaPad Slim 3", c:"Laptops", s:"Core i5 · 16GB RAM · 512GB SSD", p:89000, i:"laptop", t:"BESTSELLER" },
+    { n:"HP Victus Gaming 15", c:"Laptops", s:"Ryzen 5 · RTX 3050 · 144Hz", p:125000, i:"laptop", t:"GAMING" },
+    { n:"Dell Inspiron 14", c:"Laptops", s:"Core i3 · 8GB RAM · 512GB SSD", p:68000, i:"laptop" },
+    { n:"Custom Gaming PC Starter", c:"Desktops", s:"Ryzen 5 · RTX 4060 · 16GB", p:145000, i:"pc", t:"CUSTOM" },
+    { n:"Office Desktop Set", c:"Desktops", s:"Core i3 · 8GB · 22\" monitor", p:62000, i:"pc" },
+    { n:"24\" IPS Monitor 75Hz", c:"Monitors", s:"Full HD · HDMI · Slim bezel", p:17500, i:"monitor" },
+    { n:"27\" Gaming Monitor 165Hz", c:"Monitors", s:"QHD · 1ms · FreeSync", p:42000, i:"monitor", t:"NEW" },
+    { n:"Wireless Keyboard & Mouse", c:"Accessories", s:"Silent keys · 2.4GHz", p:2800, i:"mouse" },
+    { n:"Gaming Headset RGB", c:"Accessories", s:"7.1 surround · Mic", p:4500, i:"head" },
+    { n:"Ink Tank Printer", c:"Printers", s:"Print · Scan · Copy · Wi-Fi", p:24500, i:"printer" },
+  ];
+  const CATS = ["All","Laptops","Desktops","Monitors","Accessories","Printers"];
+  let cur = "All";
+  const fmt = n => "NPR " + n.toLocaleString("en-IN");
+  const grid = document.getElementById("grid"), filters = document.getElementById("filters");
+  function render() {
+    filters.innerHTML = CATS.map(c => `<button class="chip${c===cur?" on":""}" data-c="${c}">${c}</button>`).join("");
+    grid.innerHTML = P.filter(x => cur==="All" || x.c===cur).map(x => `
+      <div class="prod">
+        <div class="thumb">${x.t?`<span class="badge">${x.t}</span>`:""}<svg><use href="#${x.i}"/></svg></div>
+        <div class="b"><small>${x.c}</small><h4>${x.n}</h4><span class="spec">${x.s}</span>
+          <div class="row"><span class="price">${fmt(x.p)}</span>
+            <a href="#" class="btn btn-wa" data-wa="Hi! Is the ${x.n} available? What's the latest price?"><svg><use href="#wa"/></svg>Ask Price</a></div>
+        </div>
+      </div>`).join("");
+  }
+  filters.addEventListener("click", e => { if (e.target.dataset.c) { cur = e.target.dataset.c; render(); } });
+  document.querySelectorAll("[data-go]").forEach(el => el.addEventListener("click", () => { cur = el.dataset.go; render(); document.getElementById("shop").scrollIntoView(); }));
+  const toast = document.getElementById("toast"); let tm;
+  function show(m) { toast.textContent = m; toast.classList.add("show"); clearTimeout(tm); tm = setTimeout(() => toast.classList.remove("show"), 3500); }
+  document.addEventListener("click", e => { const el = e.target.closest("[data-wa]"); if (el) { e.preventDefault(); show(`Opens WhatsApp: "${el.dataset.wa}"`); } });
+  document.getElementById("buildForm").addEventListener("submit", e => { e.preventDefault(); show("Thanks! We'll call you with a PC build quote."); e.target.reset(); });
+  render();
+</script>
+</body>
+</html>

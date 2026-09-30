@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Himal Brew Café | Coffee & Bakery by the Lake</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root { --cream:#f7f0e6; --paper:#fffaf3; --ink:#2b1d14; --brown:#6b3f22; --caramel:#c8813a; --sage:#7c8b6f; --muted:#7a6a5c; --line:#e8dccb; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; overflow-x:clip; }
+  body { font-family:"DM Sans",system-ui,sans-serif; background:var(--cream); color:var(--ink); line-height:1.65; }
+  a { color:inherit; text-decoration:none; }
+  .wrap { width:min(1120px,100% - 32px); margin-inline:auto; }
+  h1,h2,h3 { font-family:Fraunces,Georgia,serif; font-weight:700; line-height:1.08; }
+  .btn { display:inline-flex; align-items:center; gap:8px; padding:13px 24px; border-radius:999px; font-weight:700; font-size:.95rem; border:0; cursor:pointer; font-family:inherit; transition:.2s; }
+  .btn-dark { background:var(--ink); color:var(--cream); } .btn-dark:hover { background:var(--brown); }
+  .btn-line { border:1.5px solid var(--ink); }
+  nav { position:sticky; top:0; z-index:40; background:rgba(247,240,230,.9); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
+  nav .wrap { display:flex; align-items:center; justify-content:space-between; height:70px; }
+  .logo { font-family:Fraunces,serif; font-weight:700; font-size:1.35rem; display:flex; align-items:center; gap:10px; }
+  .logo i { font-style:normal; font-size:1.4rem; }
+  .links { display:flex; gap:28px; font-weight:500; }
+  .links a:hover { color:var(--caramel); }
+  .hero { padding:70px 0 80px; }
+  .hero .wrap { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
+  .eyebrow { color:var(--caramel); font-weight:700; letter-spacing:.16em; font-size:.78rem; text-transform:uppercase; }
+  .hero h1 { font-size:clamp(2.8rem,6.5vw,4.8rem); margin:14px 0 18px; }
+  .hero h1 em { color:var(--caramel); font-style:italic; }
+  .hero p { color:var(--muted); font-size:1.1rem; max-width:470px; }
+  .ctas { display:flex; gap:12px; flex-wrap:wrap; margin-top:30px; }
+  .art { position:relative; aspect-ratio:1; }
+  .circle { position:absolute; inset:6%; border-radius:50%; background:radial-gradient(circle at 35% 30%, #e7b77e, var(--caramel) 45%, var(--brown) 100%); box-shadow:0 40px 80px rgba(107,63,34,.35); display:grid; place-items:center; }
+  .circle span { font-size:clamp(5rem,14vw,9rem); filter:drop-shadow(0 12px 20px rgba(0,0,0,.25)); }
+  .sticker { white-space:nowrap; position:absolute; background:var(--paper); border:1px solid var(--line); padding:12px 16px; border-radius:16px; font-size:.85rem; box-shadow:0 12px 30px rgba(43,29,20,.12); }
+  .sticker b { display:block; font-family:Fraunces,serif; font-size:1.2rem; }
+  .s1 { left:-4%; bottom:14%; } .s2 { right:-2%; top:10%; }
+  .strip { background:var(--ink); color:var(--cream); padding:18px 0; overflow:hidden; }
+  .strip .t { display:flex; gap:44px; width:max-content; animation:sc 30s linear infinite; font-family:Fraunces,serif; font-size:1.25rem; }
+  .strip span::after { content:"✺"; margin-left:44px; color:var(--caramel); }
+  @keyframes sc { to { transform:translateX(-50%); } }
+  .section { padding:84px 0; }
+  .center { text-align:center; max-width:620px; margin:0 auto 36px; }
+  .center h2 { font-size:clamp(2rem,4.5vw,3rem); margin:10px 0; }
+  .center p { color:var(--muted); }
+  .tabs { display:flex; justify-content:center; gap:8px; flex-wrap:wrap; margin-bottom:30px; }
+  .tab { padding:9px 20px; border-radius:999px; border:1.5px solid var(--line); background:transparent; font:500 .95rem "DM Sans"; cursor:pointer; color:var(--muted); }
+  .tab.on { background:var(--ink); border-color:var(--ink); color:var(--cream); }
+  .menu { display:grid; grid-template-columns:1fr 1fr; gap:10px 48px; background:var(--paper); border:1px solid var(--line); border-radius:24px; padding:36px 40px; }
+  .item { display:flex; align-items:baseline; gap:10px; padding:12px 0; border-bottom:1px dashed var(--line); }
+  .item .nm { font-weight:700; }
+  .item .ds { display:block; color:var(--muted); font-size:.86rem; font-weight:400; }
+  .item .dots { flex:1; }
+  .item .pr { font-family:Fraunces,serif; font-weight:700; color:var(--brown); white-space:nowrap; }
+  .feat { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .fc { border-radius:24px; padding:30px; min-height:220px; display:flex; flex-direction:column; justify-content:end; color:var(--cream); position:relative; overflow:hidden; }
+  .fc:nth-child(1) { background:linear-gradient(160deg,#8a5a36,var(--ink)); }
+  .fc:nth-child(2) { background:linear-gradient(160deg,var(--sage),#3f4a37); }
+  .fc:nth-child(3) { background:linear-gradient(160deg,var(--caramel),#7a4318); }
+  .fc .e { position:absolute; top:18px; right:22px; font-size:3rem; opacity:.9; }
+  .fc h3 { font-size:1.5rem; margin-bottom:6px; }
+  .fc p { opacity:.85; font-size:.93rem; }
+  .gallery { display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:190px; gap:12px; }
+  .g { border-radius:18px; display:grid; place-items:center; font-size:3rem; }
+  .g:nth-child(1) { grid-column:span 2; grid-row:span 2; background:linear-gradient(135deg,#d9b48a,#8a5a36); font-size:6rem; }
+  .g:nth-child(2) { background:#e9dcc8; } .g:nth-child(3) { background:#cdd5c3; } .g:nth-child(4) { background:#f0c9a0; } .g:nth-child(5) { background:#d8c3ad; }
+  .reserve { display:grid; grid-template-columns:1fr 1fr; gap:40px; background:var(--paper); border:1px solid var(--line); border-radius:28px; padding:44px; align-items:center; }
+  .reserve h2 { font-size:clamp(2rem,4vw,2.8rem); margin-bottom:12px; }
+  .reserve p { color:var(--muted); }
+  .info { margin-top:22px; display:grid; gap:8px; }
+  form { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  input, select { padding:13px 14px; border-radius:12px; border:1px solid var(--line); background:#fff; font:inherit; font-size:.93rem; width:100%; }
+  form .full { grid-column:1/-1; }
+  footer { padding:36px 0; text-align:center; color:var(--muted); font-size:.88rem; }
+  .toast { position:fixed; left:50%; bottom:26px; transform:translate(-50%,160%); background:var(--ink); color:var(--cream); padding:12px 20px; border-radius:999px; font-size:.9rem; transition:.3s; z-index:60; max-width:calc(100% - 32px); }
+  .toast.show { transform:translate(-50%,0); }
+  @media (max-width:900px) {
+    .hero .wrap, .reserve { grid-template-columns:1fr; }
+    .art { width:100%; max-width:380px; margin:0 auto; }
+    .menu { grid-template-columns:1fr; padding:24px; }
+    .feat { grid-template-columns:1fr; }
+    .gallery { grid-template-columns:repeat(2,1fr); grid-auto-rows:150px; }
+    .links { display:none; }
+  }
+  @media (max-width:560px) {
+    .reserve { padding:24px; }
+    form { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#" class="logo"><i>☕</i>Himal Brew</a>
+    <div class="links"><a href="#menu">Menu</a><a href="#about">About</a><a href="#gallery">Gallery</a><a href="#reserve">Visit</a></div>
+    <a href="#reserve" class="btn btn-dark">Reserve a Table</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Coffee · Bakery · Lakeside</div>
+      <h1>Fresh coffee with a <em>mountain view.</em></h1>
+      <p>Freshly roasted Nepali coffee, homemade cakes and hearty breakfasts, served with a view of the lake and the Himalayas.</p>
+      <div class="ctas">
+        <a href="#menu" class="btn btn-dark">See the Menu</a>
+        <a href="#reserve" class="btn btn-line">Book a Table</a>
+      </div>
+    </div>
+    <div class="art">
+      <div class="circle"><span>☕</span></div>
+      <div class="sticker s1"><b>Nepali Beans</b>Roasted every week</div>
+      <div class="sticker s2"><b>7 AM – 9 PM</b>Open every day</div>
+    </div>
+  </div>
+</header>
+
+<div class="strip" aria-hidden="true"><div class="t">
+  <span>Espresso</span><span>Cappuccino</span><span>Himalayan Tea</span><span>Cinnamon Rolls</span><span>Big Breakfast</span><span>Iced Latte</span>
+  <span>Espresso</span><span>Cappuccino</span><span>Himalayan Tea</span><span>Cinnamon Rolls</span><span>Big Breakfast</span><span>Iced Latte</span>
+</div></div>
+
+<section class="section" id="menu">
+  <div class="wrap">
+    <div class="center"><div class="eyebrow">Our Menu</div><h2>Made fresh, every day</h2><p>From your first espresso to an evening slice of cake.</p></div>
+    <div class="tabs" id="tabs"></div>
+    <div class="menu" id="list"></div>
+  </div>
+</section>
+
+<section class="section" id="about" style="padding-top:0">
+  <div class="wrap">
+    <div class="feat">
+      <div class="fc"><span class="e">🌱</span><h3>Local Beans</h3><p>Coffee sourced from farms in the hills of Nepal and roasted in small batches.</p></div>
+      <div class="fc"><span class="e">🏔️</span><h3>Lake &amp; Mountain View</h3><p>Rooftop seating with a view of the lake, perfect for sunrise and sunset.</p></div>
+      <div class="fc"><span class="e">🥐</span><h3>Baked In-House</h3><p>Croissants, cakes and breads baked fresh every morning in our kitchen.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="gallery" style="padding-top:0">
+  <div class="wrap">
+    <div class="center"><div class="eyebrow">Gallery</div><h2>Moments at Himal Brew</h2></div>
+    <div class="gallery"><div class="g">☕</div><div class="g">🥐</div><div class="g">🍰</div><div class="g">🏔️</div><div class="g">🍳</div></div>
+  </div>
+</section>
+
+<section class="section" id="reserve" style="padding-top:0">
+  <div class="wrap">
+    <div class="reserve">
+      <div>
+        <div class="eyebrow">Visit Us</div>
+        <h2>Reserve your table</h2>
+        <p>Planning a date, birthday or catch-up with friends? Book a table and we'll keep the best seat ready for you.</p>
+        <div class="info">
+          <span>📍 Lakeside Road, near the boat station</span>
+          <span>🕖 Open daily, 7:00 AM – 9:00 PM</span>
+          <span>📞 98XXXXXXXX</span>
+        </div>
+      </div>
+      <form id="book">
+        <input required placeholder="Your name">
+        <input required type="tel" placeholder="Phone number">
+        <input required type="date">
+        <select><option>Morning</option><option>Afternoon</option><option>Evening</option></select>
+        <select class="full"><option>2 people</option><option>3–4 people</option><option>5+ people</option></select>
+        <button class="btn btn-dark full" style="justify-content:center">Request Booking</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Himal Brew Café · Concept design by Abhinav Sigdel</footer>
+<div class="toast" id="toast"></div>
+
+<script>
+  const MENU = {
+    "Coffee": [["Espresso","Rich single shot",180],["Cappuccino","Espresso, steamed milk, foam",260],["Café Latte","Smooth and milky",280],["Iced Americano","Chilled and refreshing",250],["Caramel Macchiato","Vanilla, milk, caramel drizzle",320],["Mocha","Espresso with chocolate",310]],
+    "Tea": [["Himalayan Masala Tea","Spiced Nepali chiya",120],["Green Tea","Ilam organic leaves",150],["Lemon Honey Ginger","Warm and soothing",180],["Iced Peach Tea","House-made",220]],
+    "Bakery": [["Butter Croissant","Flaky, baked this morning",200],["Cinnamon Roll","Cream cheese glaze",240],["Chocolate Brownie","Warm with walnuts",220],["Carrot Cake","Slice",280]],
+    "Breakfast": [["Big Breakfast","Eggs, toast, sausage, hash brown",650],["Pancake Stack","Honey and seasonal fruit",450],["Avocado Toast","Sourdough, poached egg",520],["Veg Sandwich","Grilled, with fries",380]],
+  };
+  let cur = "Coffee";
+  const tabs = document.getElementById("tabs"), list = document.getElementById("list");
+  function render() {
+    tabs.innerHTML = Object.keys(MENU).map(k => `<button class="tab${k===cur?" on":""}" data-k="${k}">${k}</button>`).join("");
+    list.innerHTML = MENU[cur].map(([n,d,p]) => `<div class="item"><span class="nm">${n}<span class="ds">${d}</span></span><span class="dots"></span><span class="pr">Rs ${p}</span></div>`).join("");
+  }
+  tabs.addEventListener("click", e => { if (e.target.dataset.k) { cur = e.target.dataset.k; render(); } });
+  const toast = document.getElementById("toast"); let tm;
+  document.getElementById("book").addEventListener("submit", e => {
+    e.preventDefault(); toast.textContent = "Thank you! We'll call you to confirm your table."; toast.classList.add("show");
+    clearTimeout(tm); tm = setTimeout(() => toast.classList.remove("show"), 3500); e.target.reset();
+  });
+  render();
+</script>
+</body>
+</html>

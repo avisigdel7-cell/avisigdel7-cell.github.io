@@ -71,7 +71,7 @@
 
   /* Browser mockup */
   .mock { position: relative; }
-  .browser { border-radius: 16px; overflow: hidden; border: 1px solid var(--line); background: var(--card); box-shadow: 0 40px 90px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.03); transform: rotate(2deg); transition: .4s; }
+  .browser { display: block; border-radius: 16px; overflow: hidden; border: 1px solid var(--line); background: var(--card); box-shadow: 0 40px 90px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.03); transform: rotate(2deg); transition: .4s; }
   .mock:hover .browser { transform: rotate(0) scale(1.01); }
   .bar { display: flex; align-items: center; gap: 7px; padding: 11px 14px; border-bottom: 1px solid var(--line); background: #13111a; }
   .bar i { width: 10px; height: 10px; border-radius: 50%; background: #3a3648; }
@@ -104,6 +104,12 @@
   .work { background: var(--bg-2); }
   .project { display: grid; grid-template-columns: 1.2fr .8fr; gap: 48px; align-items: center; margin-top: 44px; background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 28px; }
   .project .browser { transform: none; box-shadow: 0 20px 50px rgba(0,0,0,.4); }
+  .minis { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 18px; }
+  .mini { background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 22px; display: flex; flex-direction: column; align-items: flex-start; }
+  .mini .browser { transform: none; width: 100%; margin-bottom: 20px; box-shadow: 0 16px 40px rgba(0,0,0,.35); }
+  .mini h3 { font-size: 1.45rem; margin: 12px 0 8px; }
+  .mini p { color: var(--muted); font-size: .95rem; margin-bottom: 20px; }
+  .mini .btn { margin-top: auto; }
   .tag { display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: 5px 10px; border-radius: 6px; background: rgba(255,79,163,.14); color: var(--pink); }
   .project h3 { font-size: 1.9rem; margin: 14px 0 10px; }
   .project p { color: var(--muted); }
@@ -119,7 +125,6 @@
   .plan h3 { font-size: 1.25rem; }
   .plan .for { color: var(--muted); font-size: .9rem; }
   .plan .price { font-family: "Space Grotesk"; font-weight: 700; font-size: 2.3rem; margin: 18px 0 4px; letter-spacing: -.03em; }
-  .plan .price small { font-size: .9rem; color: var(--muted); font-weight: 500; letter-spacing: 0; }
   .plan ul { list-style: none; margin: 20px 0 28px; display: grid; gap: 10px; font-size: .93rem; color: #d9d5e8; }
   .plan li::before { content: "✓"; color: var(--lime); font-weight: 700; margin-right: 10px; }
   .plan .btn { margin-top: auto; justify-content: center; }
@@ -154,7 +159,7 @@
   @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } .track, .status b { animation: none; } }
 
   @media (max-width: 960px) {
-    .hero .wrap, .project { grid-template-columns: 1fr; }
+    .hero .wrap, .project, .minis { grid-template-columns: 1fr; }
     .cards, .steps { grid-template-columns: 1fr 1fr; }
     .plans { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; }
     .links { display: none; }
@@ -256,7 +261,29 @@
         <a class="btn btn-ghost" href="work/lord-of-modification/" target="_blank" rel="noopener">View live design →</a>
       </div>
     </div>
-    <p class="more">More projects coming soon. Your business could be next!</p>
+    <div class="minis">
+      <div class="mini reveal">
+        <a class="browser" href="work/pixelpoint-computers/" target="_blank" rel="noopener">
+          <div class="bar"><i></i><i></i><i></i><span>PixelPoint Computers</span></div>
+          <div class="screen"><iframe src="work/pixelpoint-computers/" title="PixelPoint Computers demo" loading="lazy" tabindex="-1"></iframe></div>
+        </a>
+        <span class="tag">Demo project</span>
+        <h3>PixelPoint Computers</h3>
+        <p>A computer store website with a laptop and PC catalogue, "Ask Price on WhatsApp" buttons, repair services and a "Build your PC" quote form.</p>
+        <a class="btn btn-ghost" href="work/pixelpoint-computers/" target="_blank" rel="noopener">View live design →</a>
+      </div>
+      <div class="mini reveal">
+        <a class="browser" href="work/himal-brew-cafe/" target="_blank" rel="noopener">
+          <div class="bar"><i></i><i></i><i></i><span>Himal Brew Café</span></div>
+          <div class="screen"><iframe src="work/himal-brew-cafe/" title="Himal Brew Café demo" loading="lazy" tabindex="-1"></iframe></div>
+        </a>
+        <span class="tag">Demo project</span>
+        <h3>Himal Brew Café</h3>
+        <p>A cosy café website with a tabbed menu and prices, gallery, opening hours and an online table booking form.</p>
+        <a class="btn btn-ghost" href="work/himal-brew-cafe/" target="_blank" rel="noopener">View live design →</a>
+      </div>
+    </div>
+    <p class="more">Your business could be next! Every project starts with a free design sample.</p>
   </div>
 </section>
 
