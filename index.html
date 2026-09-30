@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abhinav Sigdel | Websites for Small Businesses in Nepal</title>
+<meta name="description" content="I design and build fast, mobile-friendly websites for small businesses in Nepal. Affordable prices, WhatsApp ordering, delivered in weeks.">
+<meta property="og:title" content="Abhinav Sigdel | Websites for Small Businesses">
+<meta property="og:description" content="Fast, mobile-friendly websites for shops, cafés, gyms and more in Nepal.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%23d4ff3a'/><text x='32' y='43' font-family='Arial' font-weight='900' font-size='28' text-anchor='middle' fill='%230d0c12'>AS</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0c12;
+    --bg-2: #15131d;
+    --card: #1a1824;
+    --line: #2b2838;
+    --text: #f5f3ff;
+    --muted: #a6a1b8;
+    --lime: #d4ff3a;
+    --violet: #8b5cf6;
+    --pink: #ff4fa3;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; overflow-x: clip; }
+  body { background: var(--bg); color: var(--text); font-family: Inter, system-ui, sans-serif; line-height: 1.6; overflow-x: hidden; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { width: min(1160px, 100% - 32px); margin-inline: auto; }
+  h1, h2, h3, .display { font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 700; letter-spacing: -.03em; line-height: 1.05; }
+  .hl { color: var(--lime); }
+  .grad { background: linear-gradient(90deg, var(--lime), #7dffb0 40%, var(--violet) 75%, var(--pink)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--lime); }
+  .eyebrow::before { content: ""; width: 18px; height: 2px; background: var(--lime); }
+  .section { padding: 96px 0; }
+  .section h2 { font-size: clamp(2.1rem, 5vw, 3.2rem); margin: 12px 0 14px; }
+  .section .sub { color: var(--muted); max-width: 560px; font-size: 1.05rem; }
+
+  .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 24px; border-radius: 999px; font-weight: 600; font-size: .96rem; transition: .2s; border: 1px solid transparent; }
+  .btn svg { width: 18px; height: 18px; }
+  .btn-lime { background: var(--lime); color: #111; }
+  .btn-lime:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(212,255,58,.3); }
+  .btn-ghost { border-color: var(--line); }
+  .btn-ghost:hover { border-color: var(--muted); }
+
+  /* Nav */
+  nav { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(14px); background: rgba(13,12,18,.75); border-bottom: 1px solid rgba(255,255,255,.05); }
+  nav .wrap { height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .logo { display: flex; align-items: center; gap: 10px; font-family: "Space Grotesk"; font-weight: 700; font-size: 1.1rem; }
+  .logo i { width: 38px; height: 38px; border-radius: 11px; background: var(--lime); color: var(--bg); display: grid; place-items: center; font-style: normal; font-size: .95rem; }
+  .links { display: flex; gap: 30px; color: var(--muted); font-size: .94rem; font-weight: 500; }
+  .links a:hover { color: var(--text); }
+  nav .btn { padding: 10px 18px; font-size: .88rem; }
+
+  /* Hero */
+  .hero { position: relative; padding: 88px 0 72px; overflow-x: clip; }
+  .blob { position: absolute; border-radius: 50%; filter: blur(90px); opacity: .45; pointer-events: none; z-index: -1; }
+  .blob.a { width: 460px; height: 460px; background: var(--violet); top: -120px; right: -80px; }
+  .blob.b { width: 320px; height: 320px; background: var(--pink); top: 260px; right: 260px; opacity: .25; }
+  .blob.c { width: 300px; height: 300px; background: var(--lime); top: 60px; left: -200px; opacity: .15; }
+  .hero .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: center; }
+  .status { display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px; border: 1px solid var(--line); border-radius: 999px; font-size: .85rem; color: var(--muted); background: rgba(255,255,255,.03); }
+  .status b { width: 8px; height: 8px; border-radius: 50%; background: #3dff8b; box-shadow: 0 0 0 4px rgba(61,255,139,.18); animation: pulse 2s infinite; }
+  @keyframes pulse { 50% { box-shadow: 0 0 0 8px rgba(61,255,139,0); } }
+  .hero h1 { font-size: clamp(2.8rem, 7vw, 5rem); margin: 22px 0 22px; }
+  .hero p { color: var(--muted); font-size: 1.12rem; max-width: 520px; }
+  .hero .ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+  .ticks { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 30px; font-size: .9rem; color: var(--muted); }
+  .ticks span::before { content: "✓"; color: var(--lime); font-weight: 700; margin-right: 8px; }
+
+  /* Browser mockup */
+  .mock { position: relative; }
+  .browser { border-radius: 16px; overflow: hidden; border: 1px solid var(--line); background: var(--card); box-shadow: 0 40px 90px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.03); transform: rotate(2deg); transition: .4s; }
+  .mock:hover .browser { transform: rotate(0) scale(1.01); }
+  .bar { display: flex; align-items: center; gap: 7px; padding: 11px 14px; border-bottom: 1px solid var(--line); background: #13111a; }
+  .bar i { width: 10px; height: 10px; border-radius: 50%; background: #3a3648; }
+  .bar i:nth-child(1) { background: #ff5f57; } .bar i:nth-child(2) { background: #febc2e; } .bar i:nth-child(3) { background: #28c840; }
+  .bar span { margin-left: 10px; flex: 1; background: var(--bg); border-radius: 6px; padding: 4px 10px; font-size: .72rem; color: var(--muted); }
+  .screen { position: relative; aspect-ratio: 16/11; overflow: hidden; background: #0b0b0d; }
+  .screen iframe { position: absolute; top: 0; left: 0; width: 250%; height: 250%; border: 0; transform: scale(.4); transform-origin: 0 0; pointer-events: none; }
+  .float-card { position: absolute; left: -26px; bottom: -22px; background: var(--lime); color: #111; border-radius: 14px; padding: 12px 16px; font-weight: 600; font-size: .85rem; box-shadow: 0 16px 40px rgba(0,0,0,.4); transform: rotate(-3deg); }
+  .float-card b { display: block; font-family: "Space Grotesk"; font-size: 1.35rem; }
+
+  /* Marquee */
+  .marquee { border-block: 1px solid var(--line); padding: 18px 0; overflow: hidden; background: var(--bg-2); }
+  .track { display: flex; gap: 48px; width: max-content; animation: scroll 28s linear infinite; font-family: "Space Grotesk"; font-weight: 700; font-size: 1.3rem; color: var(--muted); }
+  .track span::after { content: "✦"; color: var(--lime); margin-left: 48px; }
+  @keyframes scroll { to { transform: translateX(-50%); } }
+
+  /* Services */
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 44px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 26px; transition: .25s; }
+  .card:hover { border-color: var(--violet); transform: translateY(-4px); }
+  .card .ic { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; margin-bottom: 20px; font-size: 1.4rem; }
+  .card:nth-child(1) .ic { background: rgba(212,255,58,.12); }
+  .card:nth-child(2) .ic { background: rgba(139,92,246,.16); }
+  .card:nth-child(3) .ic { background: rgba(255,79,163,.14); }
+  .card:nth-child(4) .ic { background: rgba(61,255,139,.12); }
+  .card h3 { font-size: 1.2rem; margin-bottom: 8px; }
+  .card p { color: var(--muted); font-size: .93rem; }
+
+  /* Work */
+  .work { background: var(--bg-2); }
+  .project { display: grid; grid-template-columns: 1.2fr .8fr; gap: 48px; align-items: center; margin-top: 44px; background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 28px; }
+  .project .browser { transform: none; box-shadow: 0 20px 50px rgba(0,0,0,.4); }
+  .tag { display: inline-block; font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; padding: 5px 10px; border-radius: 6px; background: rgba(255,79,163,.14); color: var(--pink); }
+  .project h3 { font-size: 1.9rem; margin: 14px 0 10px; }
+  .project p { color: var(--muted); }
+  .project ul { list-style: none; margin: 18px 0 26px; display: grid; gap: 8px; font-size: .93rem; }
+  .project li::before { content: "→"; color: var(--lime); margin-right: 10px; }
+  .more { margin-top: 20px; text-align: center; color: var(--muted); font-size: .92rem; }
+
+  /* Pricing */
+  .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 44px; align-items: stretch; }
+  .plan { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 30px; display: flex; flex-direction: column; position: relative; }
+  .plan.pop { background: linear-gradient(160deg, #262045, var(--card) 60%); border-color: var(--violet); }
+  .plan.pop::before { content: "MOST POPULAR"; position: absolute; top: -12px; left: 30px; background: var(--lime); color: #111; font-size: .7rem; font-weight: 700; letter-spacing: .1em; padding: 5px 10px; border-radius: 6px; }
+  .plan h3 { font-size: 1.25rem; }
+  .plan .for { color: var(--muted); font-size: .9rem; }
+  .plan .price { font-family: "Space Grotesk"; font-weight: 700; font-size: 2.3rem; margin: 18px 0 4px; letter-spacing: -.03em; }
+  .plan .price small { font-size: .9rem; color: var(--muted); font-weight: 500; letter-spacing: 0; }
+  .plan ul { list-style: none; margin: 20px 0 28px; display: grid; gap: 10px; font-size: .93rem; color: #d9d5e8; }
+  .plan li::before { content: "✓"; color: var(--lime); font-weight: 700; margin-right: 10px; }
+  .plan .btn { margin-top: auto; justify-content: center; }
+  .note { margin-top: 22px; color: var(--muted); font-size: .9rem; text-align: center; }
+
+  /* Process */
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 44px; counter-reset: s; }
+  .step { padding: 24px; border-top: 2px solid var(--line); position: relative; }
+  .step::before { counter-increment: s; content: "0" counter(s); font-family: "Space Grotesk"; font-weight: 700; font-size: 2.6rem; color: transparent; -webkit-text-stroke: 1px var(--violet); display: block; margin-bottom: 8px; }
+  .step:hover { border-color: var(--lime); }
+  .step h3 { font-size: 1.15rem; margin-bottom: 6px; }
+  .step p { color: var(--muted); font-size: .92rem; }
+
+  /* CTA */
+  .cta { position: relative; overflow: hidden; border-radius: 28px; padding: 64px 40px; text-align: center; background: var(--lime); color: #111; }
+  .cta h2 { font-size: clamp(2rem, 5vw, 3.4rem); max-width: 760px; margin: 0 auto 14px; }
+  .cta p { max-width: 520px; margin: 0 auto 30px; color: #2c3310; }
+  .cta .ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+  .cta .btn-dark { background: #111; color: var(--lime); }
+  .cta .btn-dark:hover { transform: translateY(-2px); }
+  .cta .btn-line { border-color: rgba(0,0,0,.25); }
+  .cta .btn-line:hover { border-color: #111; }
+
+  footer { padding: 40px 0; color: var(--muted); font-size: .88rem; }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+
+  .wa { position: fixed; right: 20px; bottom: 20px; width: 58px; height: 58px; border-radius: 50%; background: #25d366; display: grid; place-items: center; color: #fff; box-shadow: 0 10px 30px rgba(37,211,102,.4); z-index: 60; }
+  .wa svg { width: 30px; height: 30px; }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s, transform .7s; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } .track, .status b { animation: none; } }
+
+  @media (max-width: 960px) {
+    .hero .wrap, .project { grid-template-columns: 1fr; }
+    .cards, .steps { grid-template-columns: 1fr 1fr; }
+    .plans { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; }
+    .links { display: none; }
+    .mock { max-width: 560px; }
+  }
+  @media (max-width: 560px) {
+    .section { padding: 72px 0; }
+    .hero { padding: 56px 0 64px; }
+    .cards, .steps { grid-template-columns: 1fr; }
+    .project { padding: 16px; }
+    .float-card { left: 8px; bottom: -18px; }
+    .cta { padding: 48px 22px; }
+    nav .btn span { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2Zm5.8 14.09c-.24.68-1.42 1.3-1.95 1.35-.5.05-.97.23-3.27-.68-2.77-1.09-4.52-3.93-4.66-4.11-.13-.18-1.11-1.48-1.11-2.83 0-1.34.7-2 .95-2.28.25-.27.54-.34.72-.34h.52c.17 0 .39-.06.61.46.23.55.77 1.9.84 2.04.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.7 1.16 1.51 1.88 1.04.93 1.91 1.21 2.18 1.35.27.14.43.11.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.23.61-.14.25.09 1.59.75 1.86.89.27.14.45.2.52.32.07.11.07.66-.17 1.33Z"/></symbol>
+</svg>
+
+<nav>
+  <div class="wrap">
+    <a href="#" class="logo"><i>AS</i>Abhinav Sigdel</a>
+    <div class="links">
+      <a href="#services">Services</a>
+      <a href="#work">Work</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#process">Process</a>
+    </div>
+    <a class="btn btn-lime" href="https://wa.me/9779766051350?text=Hi%20Abhinav!%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener"><svg><use href="#wa"/></svg><span>Let's talk</span></a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="blob a"></div><div class="blob b"></div><div class="blob c"></div>
+  <div class="wrap">
+    <div>
+      <div class="status"><b></b>Available for new projects</div>
+      <h1>Websites that bring your business <span class="grad">more customers.</span></h1>
+      <p>I design and build fast, mobile-friendly websites for small businesses in Nepal, including shops, cafés, gyms and more. Your customers can find you on Google, browse what you sell, and message you on WhatsApp in one tap.</p>
+      <div class="ctas">
+        <a class="btn btn-lime" href="https://wa.me/9779766051350?text=Hi%20Abhinav!%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Chat on WhatsApp</a>
+        <a class="btn btn-ghost" href="#work">See my work →</a>
+      </div>
+      <div class="ticks"><span>Free design sample</span><span>Ready in 1–3 weeks</span><span>Prices in NPR</span></div>
+    </div>
+    <div class="mock">
+      <div class="browser">
+        <div class="bar"><i></i><i></i><i></i><span>yourbusiness.com.np</span></div>
+        <div class="screen"><iframe src="work/lord-of-modification/" title="Website preview" loading="lazy" tabindex="-1"></iframe></div>
+      </div>
+      <div class="float-card"><b>Mobile-first</b>Looks great on every phone</div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>Bike Shops</span><span>Cafés &amp; Restaurants</span><span>Gyms</span><span>Salons</span><span>Clothing Stores</span><span>Tuition Centres</span><span>Consultancies</span><span>Hotels &amp; Homestays</span>
+    <span>Bike Shops</span><span>Cafés &amp; Restaurants</span><span>Gyms</span><span>Salons</span><span>Clothing Stores</span><span>Tuition Centres</span><span>Consultancies</span><span>Hotels &amp; Homestays</span>
+  </div>
+</div>
+
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="eyebrow">What I do</div>
+    <h2 class="reveal">Everything your business needs <span class="hl">online.</span></h2>
+    <p class="sub reveal">No technical knowledge needed. You tell me about your business, and I handle design, setup and launch.</p>
+    <div class="cards">
+      <div class="card reveal"><div class="ic">🏪</div><h3>Business Websites</h3><p>A professional site with your services, gallery, location map and contact details, all on one page.</p></div>
+      <div class="card reveal"><div class="ic">💬</div><h3>WhatsApp Ordering</h3><p>A product catalogue where customers tap "Order on WhatsApp", which works well with Cash on Delivery.</p></div>
+      <div class="card reveal"><div class="ic">🛒</div><h3>Online Stores</h3><p>A full shop with cart, checkout and an easy admin panel to manage products yourself.</p></div>
+      <div class="card reveal"><div class="ic">🛠️</div><h3>Care &amp; Updates</h3><p>I keep your site updated, secure and backed up. Just send me changes on WhatsApp.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section work" id="work">
+  <div class="wrap">
+    <div class="eyebrow">Recent work</div>
+    <h2 class="reveal">Built for real <span class="hl">Nepali businesses.</span></h2>
+    <div class="project reveal">
+      <a class="browser" href="work/lord-of-modification/" target="_blank" rel="noopener">
+        <div class="bar"><i></i><i></i><i></i><span>The Lord of Modification</span></div>
+        <div class="screen"><iframe src="work/lord-of-modification/" title="The Lord of Modification concept" loading="lazy" tabindex="-1"></iframe></div>
+      </a>
+      <div>
+        <span class="tag">Concept design</span>
+        <h3>The Lord of Modification</h3>
+        <p>A website concept for a motorcycle accessories and spare parts shop that sells across Nepal with Cash on Delivery.</p>
+        <ul>
+          <li>Product catalogue with search by bike model</li>
+          <li>One-tap "Order on WhatsApp" buttons</li>
+          <li>Online service booking form</li>
+          <li>Bold design matching the brand</li>
+        </ul>
+        <a class="btn btn-ghost" href="work/lord-of-modification/" target="_blank" rel="noopener">View live design →</a>
+      </div>
+    </div>
+    <p class="more">More projects coming soon. Your business could be next!</p>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <div class="wrap">
+    <div class="eyebrow">Pricing</div>
+    <h2 class="reveal">Simple, honest <span class="hl">prices.</span></h2>
+    <p class="sub reveal">One-time payment. 50% to start, 50% when your site goes live. Final price depends on your needs.</p>
+    <div class="plans">
+      <div class="plan reveal">
+        <h3>Starter</h3><div class="for">For getting online fast</div>
+        <div class="price">NPR 12,000</div><small style="color:var(--muted)">starting from</small>
+        <ul><li>Up to 5 pages</li><li>Mobile-friendly design</li><li>WhatsApp &amp; call buttons</li><li>Google Maps &amp; gallery</li><li>Ready in 7–10 days</li></ul>
+        <a class="btn btn-ghost" href="https://wa.me/9779766051350?text=Hi%20Abhinav!%20I%27m%20interested%20in%20the%20Starter%20website." target="_blank" rel="noopener">Get started</a>
+      </div>
+      <div class="plan pop reveal">
+        <h3>Standard</h3><div class="for">For shops that sell products</div>
+        <div class="price">NPR 25,000</div><small style="color:var(--muted)">starting from</small>
+        <ul><li>Everything in Starter</li><li>Product catalogue (150 items)</li><li>"Order on WhatsApp" buttons</li><li>Booking / enquiry form</li><li>Google search setup</li><li>Ready in 2–3 weeks</li></ul>
+        <a class="btn btn-lime" href="https://wa.me/9779766051350?text=Hi%20Abhinav!%20I%27m%20interested%20in%20the%20Standard%20website." target="_blank" rel="noopener">Get started</a>
+      </div>
+      <div class="plan reveal">
+        <h3>Premium</h3><div class="for">For a full online store</div>
+        <div class="price">NPR 50,000</div><small style="color:var(--muted)">starting from</small>
+        <ul><li>Everything in Standard</li><li>Cart &amp; checkout</li><li>Cash on Delivery orders</li><li>Admin panel to manage products</li><li>Ready in 4–5 weeks</li></ul>
+        <a class="btn btn-ghost" href="https://wa.me/9779766051350?text=Hi%20Abhinav!%20I%27m%20interested%20in%20the%20Premium%20website." target="_blank" rel="noopener">Get started</a>
+      </div>
+    </div>
+    <p class="note">Monthly care plan from NPR 1,500 · Help with a free .com.np domain included</p>
+  </div>
+</section>
+
+<section class="section" id="process" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow">How it works</div>
+    <h2 class="reveal">From chat to live site in <span class="hl">4 steps.</span></h2>
+    <div class="steps">
+      <div class="step reveal"><h3>Chat</h3><p>Tell me about your business on WhatsApp or in person.</p></div>
+      <div class="step reveal"><h3>Free sample</h3><p>I design a sample homepage so you can see it before paying.</p></div>
+      <div class="step reveal"><h3>Build</h3><p>Send your photos and details, and I build the full site.</p></div>
+      <div class="step reveal"><h3>Launch</h3><p>Your site goes live, and I show you how everything works.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta reveal">
+      <h2>Let's get your business online.</h2>
+      <p>Message me today and get a free design sample for your business, with no commitment.</p>
+      <div class="ctas">
+        <a class="btn btn-dark" href="https://wa.me/9779766051350?text=Hi%20Abhinav!%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener"><svg><use href="#wa"/></svg>WhatsApp 9766051350</a>
+        <a class="btn btn-line" href="mailto:avisigdel7@gmail.com">avisigdel7@gmail.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Abhinav Sigdel · Web Design &amp; Development · Nepal</div>
+    <div><a href="tel:+9779766051350">+977 9766051350</a> · <a href="mailto:avisigdel7@gmail.com">avisigdel7@gmail.com</a></div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/9779766051350?text=Hi%20Abhinav!%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg><use href="#wa"/></svg></a>
+
+<script>
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+  }), { threshold: .12 });
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+</script>
+</body>
+</html>
