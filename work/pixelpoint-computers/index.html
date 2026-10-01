@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root { --bg:#f5f7fb; --card:#fff; --ink:#0f172a; --muted:#64748b; --line:#e2e8f0; --blue:#2563eb; --blue-d:#1d4ed8; --cyan:#06b6d4; --wa:#25d366; }
+  :root { --bg:#f5f7fb; --card:#fff; --ink:#0f172a; --muted:#526074; --line:#e2e8f0; --blue:#2563eb; --blue-d:#1d4ed8; --cyan:#06b6d4; --wa:#25d366; }
   * { box-sizing:border-box; margin:0; padding:0; }
   html { scroll-behavior:smooth; overflow-x:clip; }
   body { font-family:"Plus Jakarta Sans",system-ui,sans-serif; background:var(--bg); color:var(--ink); line-height:1.6; }
@@ -19,7 +19,7 @@
   .btn { display:inline-flex; align-items:center; gap:8px; padding:13px 22px; border-radius:10px; font-weight:700; font-size:.95rem; border:0; cursor:pointer; font-family:inherit; transition:.2s; }
   .btn-blue { background:var(--blue); color:#fff; } .btn-blue:hover { background:var(--blue-d); }
   .btn-light { background:#fff; color:var(--ink); border:1px solid var(--line); }
-  .btn-wa { background:var(--wa); color:#fff; }
+  .btn-wa { background:var(--wa); color:#06270f; }
   .top { background:var(--ink); color:#cbd5e1; font-size:.82rem; text-align:center; padding:8px 16px; }
   .top b { color:#fff; }
   nav { background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:40; }
@@ -32,7 +32,7 @@
   .hero .wrap { display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:center; }
   .pill { display:inline-block; background:#dbeafe; color:var(--blue-d); font-weight:700; font-size:.8rem; padding:6px 12px; border-radius:999px; }
   .hero h1 { font-size:clamp(2.4rem,5.5vw,3.8rem); margin:16px 0; font-weight:800; }
-  .hero h1 span { background:linear-gradient(90deg,var(--blue),var(--cyan)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .hero h1 span { background:linear-gradient(90deg,var(--blue),#0e7490); -webkit-background-clip:text; background-clip:text; color:transparent; }
   .hero p { color:var(--muted); font-size:1.08rem; max-width:520px; }
   .ctas { display:flex; gap:12px; flex-wrap:wrap; margin-top:28px; }
   .trust { display:flex; gap:28px; margin-top:32px; flex-wrap:wrap; }
@@ -85,7 +85,7 @@
   .contact h3 { font-size:1rem; margin-bottom:4px; }
   .contact p { color:var(--muted); font-size:.92rem; }
   footer { padding:30px 0; color:var(--muted); font-size:.85rem; text-align:center; }
-  .wa { position:fixed; right:20px; bottom:20px; width:56px; height:56px; border-radius:50%; background:var(--wa); display:grid; place-items:center; color:#fff; border:0; cursor:pointer; box-shadow:0 10px 26px rgba(37,211,102,.4); z-index:50; }
+  .wa { position:fixed; right:20px; bottom:20px; width:56px; height:56px; border-radius:50%; background:var(--wa); display:grid; place-items:center; color:#06270f; border:0; cursor:pointer; box-shadow:0 10px 26px rgba(37,211,102,.4); z-index:50; }
   .wa svg, .btn svg { width:18px; height:18px; } .wa svg { width:28px; height:28px; }
   .toast { position:fixed; left:50%; bottom:26px; transform:translate(-50%,160%); background:var(--ink); color:#fff; padding:12px 18px; border-radius:10px; font-size:.9rem; transition:.3s; z-index:60; max-width:calc(100% - 32px); }
   .toast.show { transform:translate(-50%,0); }
@@ -103,6 +103,14 @@
     .build { padding:28px; }
     .tagcard { right:8px; }
   }
+
+  .demo-note { background:#111; color:#fff; font-size:.82rem; text-align:center; padding:8px 14px; }
+  .demo-note a { color:#fff; text-decoration:underline; }
+  .sr { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+  .skip { position:absolute; left:12px; top:-60px; z-index:100; background:#111; color:#fff; padding:10px 16px; border-radius:8px; font-weight:700; }
+  .skip:focus { top:12px; }
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, [tabindex]:focus-visible { outline:3px solid #111; outline-offset:2px; }
+  .consent { font-size:.8rem; opacity:.85; }
 </style>
 </head>
 <body>
@@ -117,9 +125,11 @@
   <symbol id="head" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></g></symbol>
 </svg>
 
+<a class="skip" href="#main">Skip to main content</a>
+<div class="demo-note" role="note">Demo website for a fictional business, designed by <a href="../../index.html">Abhinav Sigdel</a>. Products, prices and offers are examples. Forms and order buttons do not send or store any data.</div>
 <div class="top">💻 Genuine products with warranty · <b>Free delivery</b> within the city · Repair &amp; upgrade services</div>
 
-<nav>
+<nav aria-label="Main">
   <div class="wrap">
     <a href="#" class="logo"><i>P</i>PixelPoint Computers</a>
     <div class="links"><a href="#shop">Shop</a><a href="#services">Services</a><a href="#build">Build a PC</a><a href="#contact">Contact</a></div>
@@ -127,6 +137,7 @@
   </div>
 </nav>
 
+<main id="main">
 <header class="hero">
   <div class="wrap">
     <div>
@@ -154,11 +165,11 @@
 <section class="section" style="padding-top:24px">
   <div class="wrap">
     <div class="cats">
-      <div class="cat" data-go="Laptops"><div class="ic"><svg><use href="#laptop"/></svg></div><b>Laptops</b></div>
-      <div class="cat" data-go="Desktops"><div class="ic"><svg><use href="#pc"/></svg></div><b>Gaming PCs</b></div>
-      <div class="cat" data-go="Monitors"><div class="ic"><svg><use href="#monitor"/></svg></div><b>Monitors</b></div>
-      <div class="cat" data-go="Accessories"><div class="ic"><svg><use href="#mouse"/></svg></div><b>Accessories</b></div>
-      <div class="cat" data-go="Printers"><div class="ic"><svg><use href="#printer"/></svg></div><b>Printers</b></div>
+      <div class="cat" role="button" tabindex="0" data-go="Laptops"><div class="ic"><svg><use href="#laptop"/></svg></div><b>Laptops</b></div>
+      <div class="cat" role="button" tabindex="0" data-go="Desktops"><div class="ic"><svg><use href="#pc"/></svg></div><b>Gaming PCs</b></div>
+      <div class="cat" role="button" tabindex="0" data-go="Monitors"><div class="ic"><svg><use href="#monitor"/></svg></div><b>Monitors</b></div>
+      <div class="cat" role="button" tabindex="0" data-go="Accessories"><div class="ic"><svg><use href="#mouse"/></svg></div><b>Accessories</b></div>
+      <div class="cat" role="button" tabindex="0" data-go="Printers"><div class="ic"><svg><use href="#printer"/></svg></div><b>Printers</b></div>
       <a class="cat" href="#services"><div class="ic"><svg><use href="#tool"/></svg></div><b>Repair</b></a>
     </div>
   </div>
@@ -176,12 +187,11 @@
   <div class="wrap">
     <div class="head"><h2>Repair &amp; Services</h2><p>Bring your device to our service centre. Most repairs are done the same day.</p></div>
     <div class="services">
-      <div class="svc"><div class="n">01</div><h3>Laptop &amp; PC Repair</h3><p>Screen, keyboard, battery and motherboard repair for all brands.</p></div>
+      <div class="svc"><div class="n">01</div><h3>Laptop &amp; PC Repair</h3><p>Screen, keyboard, battery and motherboard repair.</p></div>
       <div class="svc"><div class="n">02</div><h3>Upgrades</h3><p>SSD and RAM upgrades to make your old computer fast again.</p></div>
       <div class="svc"><div class="n">03</div><h3>Software &amp; OS</h3><p>Windows installation, drivers, antivirus and data backup.</p></div>
       <div class="svc"><div class="n">04</div><h3>Office Setup</h3><p>Computers, printers and networking for offices and schools.</p></div>
     </div>
-    <div class="brands" style="margin-top:28px"><span>DELL</span><span>HP</span><span>LENOVO</span><span>ASUS</span><span>ACER</span><span>MSI</span></div>
   </div>
 </section>
 
@@ -193,11 +203,12 @@
         <p>Tell us your budget and what you'll use it for, whether gaming, editing or office work. We'll suggest the best parts and assemble it for you.</p>
       </div>
       <form id="buildForm">
-        <input required placeholder="Your name">
-        <input required type="tel" placeholder="Phone number">
-        <select><option>Gaming</option><option>Video editing</option><option>Office / study</option></select>
-        <select><option>Budget: NPR 60,000 – 1,00,000</option><option>Budget: NPR 1,00,000 – 2,00,000</option><option>Budget: NPR 2,00,000+</option></select>
-        <button class="btn btn-blue" style="justify-content:center">Get Free Quote</button>
+        <input required placeholder="Your name" aria-label="Your name" autocomplete="name">
+        <input required type="tel" placeholder="Phone number" aria-label="Phone number" autocomplete="tel">
+        <select aria-label="What will you use the PC for?"><option>Gaming</option><option>Video editing</option><option>Office / study</option></select>
+        <select aria-label="Your budget"><option>Budget: NPR 60,000 – 1,00,000</option><option>Budget: NPR 1,00,000 – 2,00,000</option><option>Budget: NPR 2,00,000+</option></select>
+        <button class="btn btn-blue" style="justify-content:center">Request a PC build quote</button>
+        <p class="consent">Demo form: nothing you type is sent or stored. On a real site, you would agree to the store's Privacy Policy here.</p>
       </form>
     </div>
   </div>
@@ -214,16 +225,17 @@
   </div>
 </section>
 
-<footer>© 2026 PixelPoint Computers · Concept design by Abhinav Sigdel</footer>
+</main>
+<footer>PixelPoint Computers is a fictional demo business · Design by Abhinav Sigdel · <a href="../../privacy.html" style="text-decoration:underline">Privacy</a> · <a href="../../terms.html" style="text-decoration:underline">Terms</a></footer>
 
 <button class="wa" aria-label="WhatsApp" data-wa="Hi! I have a question about your products."><svg><use href="#wa"/></svg></button>
 <div class="toast" id="toast"></div>
 
 <script>
   const P = [
-    { n:"Lenovo IdeaPad Slim 3", c:"Laptops", s:"Core i5 · 16GB RAM · 512GB SSD", p:89000, i:"laptop", t:"BESTSELLER" },
-    { n:"HP Victus Gaming 15", c:"Laptops", s:"Ryzen 5 · RTX 3050 · 144Hz", p:125000, i:"laptop", t:"GAMING" },
-    { n:"Dell Inspiron 14", c:"Laptops", s:"Core i3 · 8GB RAM · 512GB SSD", p:68000, i:"laptop" },
+    { n:"SlimBook 15 Everyday Laptop", c:"Laptops", s:"Core i5 · 16GB RAM · 512GB SSD", p:89000, i:"laptop", t:"BESTSELLER" },
+    { n:"Striker 15 Gaming Laptop", c:"Laptops", s:"Ryzen 5 · RTX 3050 · 144Hz", p:125000, i:"laptop", t:"GAMING" },
+    { n:"StudyMate 14 Laptop", c:"Laptops", s:"Core i3 · 8GB RAM · 512GB SSD", p:68000, i:"laptop" },
     { n:"Custom Gaming PC Starter", c:"Desktops", s:"Ryzen 5 · RTX 4060 · 16GB", p:145000, i:"pc", t:"CUSTOM" },
     { n:"Office Desktop Set", c:"Desktops", s:"Core i3 · 8GB · 22\" monitor", p:62000, i:"pc" },
     { n:"24\" IPS Monitor 75Hz", c:"Monitors", s:"Full HD · HDMI · Slim bezel", p:17500, i:"monitor" },
@@ -253,7 +265,9 @@
   function show(m) { toast.textContent = m; toast.classList.add("show"); clearTimeout(tm); tm = setTimeout(() => toast.classList.remove("show"), 3500); }
   document.addEventListener("click", e => { const el = e.target.closest("[data-wa]"); if (el) { e.preventDefault(); show(`Opens WhatsApp: "${el.dataset.wa}"`); } });
   document.getElementById("buildForm").addEventListener("submit", e => { e.preventDefault(); show("Thanks! We'll call you with a PC build quote."); e.target.reset(); });
+  document.addEventListener("keydown", e => { if ((e.key === "Enter" || e.key === " ") && e.target.matches("[role=button][data-go]")) { e.preventDefault(); e.target.click(); } });
   render();
+  document.querySelectorAll("svg").forEach(s => { s.setAttribute("aria-hidden", "true"); s.setAttribute("focusable", "false"); });
 </script>
 </body>
 </html>

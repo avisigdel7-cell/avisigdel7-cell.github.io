@@ -151,9 +151,22 @@
   footer { padding: 40px 0; color: var(--muted); font-size: .88rem; }
   footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
 
-  .wa { position: fixed; right: 20px; bottom: 20px; width: 58px; height: 58px; border-radius: 50%; background: #25d366; display: grid; place-items: center; color: #fff; box-shadow: 0 10px 30px rgba(37,211,102,.4); z-index: 60; }
+  .wa { position: fixed; right: 20px; bottom: 20px; width: 58px; height: 58px; border-radius: 50%; background: #25d366; display: grid; place-items: center; color: #06270f; box-shadow: 0 10px 30px rgba(37,211,102,.4); z-index: 60; }
   .wa svg { width: 30px; height: 30px; }
 
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .skip { position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--lime); color: #111; padding: 10px 16px; border-radius: 8px; font-weight: 600; }
+  .skip:focus { top: 12px; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--lime); outline-offset: 3px; border-radius: 6px; }
+  .cta a:focus-visible { outline-color: #111; }
+  .menu-btn { display: none; width: 44px; height: 44px; border-radius: 10px; border: 1px solid var(--line); background: transparent; color: var(--text); font-size: 1.2rem; cursor: pointer; }
+  footer { border-top: 1px solid var(--line); }
+  .foot { display: grid !important; grid-template-columns: 1.2fr 1fr; gap: 24px; }
+  .foot strong { color: var(--text); display: block; margin-bottom: 6px; }
+  .foot address { font-style: normal; line-height: 1.8; }
+  .foot a { text-decoration: underline; text-underline-offset: 3px; }
+  .foot nav { position: static; background: none; border: 0; backdrop-filter: none; display: grid; gap: 8px; align-content: start; justify-items: start; }
+  .foot .fine { grid-column: 1 / -1; font-size: .82rem; }
   .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s, transform .7s; }
   .reveal.in { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } .track, .status b { animation: none; } }
@@ -162,7 +175,11 @@
     .hero .wrap, .project, .minis { grid-template-columns: 1fr; }
     .cards, .steps { grid-template-columns: 1fr 1fr; }
     .plans { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; }
-    .links { display: none; }
+    .links { display: none; position: absolute; top: 72px; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--bg); border-bottom: 1px solid var(--line); }
+    .links.open { display: flex; }
+    .links a { padding: 14px 16px; border-top: 1px solid var(--line); }
+    .menu-btn { display: inline-grid; place-items: center; order: 3; }
+    .foot { grid-template-columns: 1fr; }
     .mock { max-width: 560px; }
   }
   @media (max-width: 560px) {
@@ -177,41 +194,44 @@
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to main content</a>
 
 <svg width="0" height="0" style="position:absolute">
   <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2Zm5.8 14.09c-.24.68-1.42 1.3-1.95 1.35-.5.05-.97.23-3.27-.68-2.77-1.09-4.52-3.93-4.66-4.11-.13-.18-1.11-1.48-1.11-2.83 0-1.34.7-2 .95-2.28.25-.27.54-.34.72-.34h.52c.17 0 .39-.06.61.46.23.55.77 1.9.84 2.04.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.7 1.16 1.51 1.88 1.04.93 1.91 1.21 2.18 1.35.27.14.43.11.59-.07.16-.18.68-.79.86-1.07.18-.27.36-.23.61-.14.25.09 1.59.75 1.86.89.27.14.45.2.52.32.07.11.07.66-.17 1.33Z"/></symbol>
 </svg>
 
-<nav>
+<nav aria-label="Main">
   <div class="wrap">
     <a href="#" class="logo"><i>AS</i>Abhinav Sigdel</a>
-    <div class="links">
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">☰</button>
+    <div class="links" id="navLinks">
       <a href="#services">Services</a>
       <a href="#work">Work</a>
       <a href="#pricing">Pricing</a>
       <a href="#process">Process</a>
     </div>
-    <a class="btn btn-lime" href="https://wa.me/9779766051350?text=Hi%20Abhinav!%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener"><svg><use href="#wa"/></svg><span>Let's talk</span></a>
+    <a class="btn btn-lime" href="https://wa.me/9779766051350?text=Hi%20Abhinav!%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener" aria-label="Chat with me on WhatsApp (opens in a new tab)"><svg aria-hidden="true" focusable="false"><use href="#wa"/></svg><span>Let's talk</span></a>
   </div>
 </nav>
 
+<main id="main">
 <header class="hero">
-  <div class="blob a"></div><div class="blob b"></div><div class="blob c"></div>
+  <div class="blob a" aria-hidden="true"></div><div class="blob b" aria-hidden="true"></div><div class="blob c" aria-hidden="true"></div>
   <div class="wrap">
     <div>
       <div class="status"><b></b>Available for new projects</div>
-      <h1>Websites that bring your business <span class="grad">more customers.</span></h1>
-      <p>I design and build fast, mobile-friendly websites for small businesses in Nepal, including shops, cafés, gyms and more. Your customers can find you on Google, browse what you sell, and message you on WhatsApp in one tap.</p>
+      <h1>Websites that help your business reach <span class="grad">more customers.</span></h1>
+      <p>I design and build fast, mobile-friendly websites for small businesses in Nepal, including shops, cafés, gyms and more. Your customers can find you online, browse what you sell, and message you on WhatsApp in one tap.</p>
       <div class="ctas">
-        <a class="btn btn-lime" href="https://wa.me/9779766051350?text=Hi%20Abhinav!%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Chat on WhatsApp</a>
-        <a class="btn btn-ghost" href="#work">See my work →</a>
+        <a class="btn btn-lime" href="https://wa.me/9779766051350?text=Hi%20Abhinav!%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false"><use href="#wa"/></svg>Chat on WhatsApp</a>
+        <a class="btn btn-ghost" href="#work">See demo projects <span aria-hidden="true">→</span></a>
       </div>
       <div class="ticks"><span>Free design sample</span><span>Ready in 1–3 weeks</span><span>Prices in NPR</span></div>
     </div>
     <div class="mock">
       <div class="browser">
         <div class="bar"><i></i><i></i><i></i><span>yourbusiness.com.np</span></div>
-        <div class="screen"><iframe src="work/lord-of-modification/" title="Website preview" loading="lazy" tabindex="-1"></iframe></div>
+        <div class="screen"><iframe src="work/pixelpoint-computers/" title="Preview of the PixelPoint Computers demo website" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
       </div>
       <div class="float-card"><b>Mobile-first</b>Looks great on every phone</div>
     </div>
@@ -231,56 +251,39 @@
     <h2 class="reveal">Everything your business needs <span class="hl">online.</span></h2>
     <p class="sub reveal">No technical knowledge needed. You tell me about your business, and I handle design, setup and launch.</p>
     <div class="cards">
-      <div class="card reveal"><div class="ic">🏪</div><h3>Business Websites</h3><p>A professional site with your services, gallery, location map and contact details, all on one page.</p></div>
-      <div class="card reveal"><div class="ic">💬</div><h3>WhatsApp Ordering</h3><p>A product catalogue where customers tap "Order on WhatsApp", which works well with Cash on Delivery.</p></div>
-      <div class="card reveal"><div class="ic">🛒</div><h3>Online Stores</h3><p>A full shop with cart, checkout and an easy admin panel to manage products yourself.</p></div>
-      <div class="card reveal"><div class="ic">🛠️</div><h3>Care &amp; Updates</h3><p>I keep your site updated, secure and backed up. Just send me changes on WhatsApp.</p></div>
+      <div class="card reveal"><div class="ic" aria-hidden="true">🏪</div><h3>Business Websites</h3><p>A professional site with your services, gallery, location map and contact details, all on one page.</p></div>
+      <div class="card reveal"><div class="ic" aria-hidden="true">💬</div><h3>WhatsApp Ordering</h3><p>A product catalogue where customers tap "Order on WhatsApp", which works well with Cash on Delivery.</p></div>
+      <div class="card reveal"><div class="ic" aria-hidden="true">🛒</div><h3>Online Stores</h3><p>A full shop with cart, checkout and an easy admin panel to manage products yourself.</p></div>
+      <div class="card reveal"><div class="ic" aria-hidden="true">🛠️</div><h3>Care &amp; Updates</h3><p>I keep your site updated, secure and backed up. Just send me changes on WhatsApp.</p></div>
     </div>
   </div>
 </section>
 
 <section class="section work" id="work">
   <div class="wrap">
-    <div class="eyebrow">Recent work</div>
-    <h2 class="reveal">Built for real <span class="hl">Nepali businesses.</span></h2>
-    <div class="project reveal">
-      <a class="browser" href="work/lord-of-modification/" target="_blank" rel="noopener">
-        <div class="bar"><i></i><i></i><i></i><span>The Lord of Modification</span></div>
-        <div class="screen"><iframe src="work/lord-of-modification/" title="The Lord of Modification concept" loading="lazy" tabindex="-1"></iframe></div>
-      </a>
-      <div>
-        <span class="tag">Concept design</span>
-        <h3>The Lord of Modification</h3>
-        <p>A website concept for a motorcycle accessories and spare parts shop that sells across Nepal with Cash on Delivery.</p>
-        <ul>
-          <li>Product catalogue with search by bike model</li>
-          <li>One-tap "Order on WhatsApp" buttons</li>
-          <li>Online service booking form</li>
-          <li>Bold design matching the brand</li>
-        </ul>
-        <a class="btn btn-ghost" href="work/lord-of-modification/" target="_blank" rel="noopener">View live design →</a>
-      </div>
-    </div>
+    <div class="eyebrow">Demo projects</div>
+    <h2 class="reveal">Designs made for <span class="hl">Nepali businesses.</span></h2>
+    <p class="sub reveal">These are demo websites for fictional businesses, built to show what I can make for you.</p>
     <div class="minis">
       <div class="mini reveal">
-        <a class="browser" href="work/pixelpoint-computers/" target="_blank" rel="noopener">
+        <a class="browser" href="work/pixelpoint-computers/" target="_blank" rel="noopener" aria-label="Open the PixelPoint Computers demo website (opens in a new tab)">
           <div class="bar"><i></i><i></i><i></i><span>PixelPoint Computers</span></div>
-          <div class="screen"><iframe src="work/pixelpoint-computers/" title="PixelPoint Computers demo" loading="lazy" tabindex="-1"></iframe></div>
+          <div class="screen"><iframe src="work/pixelpoint-computers/" title="PixelPoint Computers demo" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
         </a>
         <span class="tag">Demo project</span>
         <h3>PixelPoint Computers</h3>
         <p>A computer store website with a laptop and PC catalogue, "Ask Price on WhatsApp" buttons, repair services and a "Build your PC" quote form.</p>
-        <a class="btn btn-ghost" href="work/pixelpoint-computers/" target="_blank" rel="noopener">View live design →</a>
+        <a class="btn btn-ghost" href="work/pixelpoint-computers/" target="_blank" rel="noopener">View the PixelPoint Computers demo <span aria-hidden="true">→</span><span class="sr"> (opens in a new tab)</span></a>
       </div>
       <div class="mini reveal">
-        <a class="browser" href="work/himal-brew-cafe/" target="_blank" rel="noopener">
+        <a class="browser" href="work/himal-brew-cafe/" target="_blank" rel="noopener" aria-label="Open the Himal Brew Café demo website (opens in a new tab)">
           <div class="bar"><i></i><i></i><i></i><span>Himal Brew Café</span></div>
-          <div class="screen"><iframe src="work/himal-brew-cafe/" title="Himal Brew Café demo" loading="lazy" tabindex="-1"></iframe></div>
+          <div class="screen"><iframe src="work/himal-brew-cafe/" title="Himal Brew Café demo" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
         </a>
         <span class="tag">Demo project</span>
         <h3>Himal Brew Café</h3>
         <p>A cosy café website with a tabbed menu and prices, gallery, opening hours and an online table booking form.</p>
-        <a class="btn btn-ghost" href="work/himal-brew-cafe/" target="_blank" rel="noopener">View live design →</a>
+        <a class="btn btn-ghost" href="work/himal-brew-cafe/" target="_blank" rel="noopener">View the Himal Brew Café demo <span aria-hidden="true">→</span><span class="sr"> (opens in a new tab)</span></a>
       </div>
     </div>
     <p class="more">Your business could be next! Every project starts with a free design sample.</p>
@@ -297,19 +300,19 @@
         <h3>Starter</h3><div class="for">For getting online fast</div>
         <div class="price">NPR 12,000</div><small style="color:var(--muted)">starting from</small>
         <ul><li>Up to 5 pages</li><li>Mobile-friendly design</li><li>WhatsApp &amp; call buttons</li><li>Google Maps &amp; gallery</li><li>Ready in 7–10 days</li></ul>
-        <a class="btn btn-ghost" href="https://wa.me/9779766051350?text=Hi%20Abhinav!%20I%27m%20interested%20in%20the%20Starter%20website." target="_blank" rel="noopener">Get started</a>
+        <a class="btn btn-ghost" href="https://wa.me/9779766051350?text=Hi%20Abhinav!%20I%27m%20interested%20in%20the%20Starter%20website." target="_blank" rel="noopener">Get the Starter package<span class="sr"> on WhatsApp (opens in a new tab)</span></a>
       </div>
       <div class="plan pop reveal">
         <h3>Standard</h3><div class="for">For shops that sell products</div>
         <div class="price">NPR 25,000</div><small style="color:var(--muted)">starting from</small>
         <ul><li>Everything in Starter</li><li>Product catalogue (150 items)</li><li>"Order on WhatsApp" buttons</li><li>Booking / enquiry form</li><li>Google search setup</li><li>Ready in 2–3 weeks</li></ul>
-        <a class="btn btn-lime" href="https://wa.me/9779766051350?text=Hi%20Abhinav!%20I%27m%20interested%20in%20the%20Standard%20website." target="_blank" rel="noopener">Get started</a>
+        <a class="btn btn-lime" href="https://wa.me/9779766051350?text=Hi%20Abhinav!%20I%27m%20interested%20in%20the%20Standard%20website." target="_blank" rel="noopener">Get the Standard package<span class="sr"> on WhatsApp (opens in a new tab)</span></a>
       </div>
       <div class="plan reveal">
         <h3>Premium</h3><div class="for">For a full online store</div>
         <div class="price">NPR 50,000</div><small style="color:var(--muted)">starting from</small>
         <ul><li>Everything in Standard</li><li>Cart &amp; checkout</li><li>Cash on Delivery orders</li><li>Admin panel to manage products</li><li>Ready in 4–5 weeks</li></ul>
-        <a class="btn btn-ghost" href="https://wa.me/9779766051350?text=Hi%20Abhinav!%20I%27m%20interested%20in%20the%20Premium%20website." target="_blank" rel="noopener">Get started</a>
+        <a class="btn btn-ghost" href="https://wa.me/9779766051350?text=Hi%20Abhinav!%20I%27m%20interested%20in%20the%20Premium%20website." target="_blank" rel="noopener">Get the Premium package<span class="sr"> on WhatsApp (opens in a new tab)</span></a>
       </div>
     </div>
     <p class="note">Monthly care plan from NPR 1,500 · Help with a free .com.np domain included</p>
@@ -335,27 +338,47 @@
       <h2>Let's get your business online.</h2>
       <p>Message me today and get a free design sample for your business, with no commitment.</p>
       <div class="ctas">
-        <a class="btn btn-dark" href="https://wa.me/9779766051350?text=Hi%20Abhinav!%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener"><svg><use href="#wa"/></svg>WhatsApp 9766051350</a>
+        <a class="btn btn-dark" href="https://wa.me/9779766051350?text=Hi%20Abhinav!%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false"><use href="#wa"/></svg>WhatsApp 9766051350</a>
         <a class="btn btn-line" href="mailto:avisigdel7@gmail.com">avisigdel7@gmail.com</a>
       </div>
     </div>
   </div>
 </section>
 
+</main>
+
 <footer>
-  <div class="wrap">
-    <div>© 2026 Abhinav Sigdel · Web Design &amp; Development · Nepal</div>
-    <div><a href="tel:+9779766051350">+977 9766051350</a> · <a href="mailto:avisigdel7@gmail.com">avisigdel7@gmail.com</a></div>
+  <div class="wrap foot">
+    <div>
+      <strong>Abhinav Sigdel · Web Design &amp; Development</strong>
+      <address>Kohalpur, Banke, Lumbini Province, Nepal<br>
+        Phone / WhatsApp: <a href="tel:+9779766051350">+977 9766051350</a><br>
+        Email: <a href="mailto:avisigdel7@gmail.com">avisigdel7@gmail.com</a></address>
+    </div>
+    <nav aria-label="Legal">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms &amp; Conditions</a>
+      <a href="refund.html">Refund Policy</a>
+      <a href="cookies.html">Cookie Policy</a>
+    </nav>
+    <p class="fine">© 2026 Abhinav Sigdel. All rights reserved. Demo projects shown on this site are fictional businesses created to show design work. This site uses no cookies and no tracking.</p>
   </div>
 </footer>
 
-<a class="wa" href="https://wa.me/9779766051350?text=Hi%20Abhinav!%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg><use href="#wa"/></svg></a>
+<a class="wa" href="https://wa.me/9779766051350?text=Hi%20Abhinav!%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg aria-hidden="true" focusable="false"><use href="#wa"/></svg></a>
 
 <script>
   const io = new IntersectionObserver(entries => entries.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
   }), { threshold: .12 });
   document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+  const menuBtn = document.getElementById("menuBtn"), navLinks = document.getElementById("navLinks");
+  menuBtn.addEventListener("click", () => {
+    const open = navLinks.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", open);
+    menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  });
+  navLinks.addEventListener("click", () => { navLinks.classList.remove("open"); menuBtn.setAttribute("aria-expanded", "false"); });
 </script>
 </body>
 </html>

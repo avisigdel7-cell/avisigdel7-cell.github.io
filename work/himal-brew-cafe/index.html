@@ -89,11 +89,23 @@
     .reserve { padding:24px; }
     form { grid-template-columns:1fr; }
   }
+
+  .demo-note { background:#111; color:#fff; font-size:.82rem; text-align:center; padding:8px 14px; }
+  .demo-note a { color:#fff; text-decoration:underline; }
+  .sr { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+  .skip { position:absolute; left:12px; top:-60px; z-index:100; background:#111; color:#fff; padding:10px 16px; border-radius:8px; font-weight:700; }
+  .skip:focus { top:12px; }
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, [tabindex]:focus-visible { outline:3px solid #111; outline-offset:2px; }
+  .consent { font-size:.8rem; opacity:.85; }
+  .eyebrow { color:#8a4f17 !important; }
+  .hero h1 em { color:#a55f1f !important; }
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to main content</a>
+<div class="demo-note" role="note">Demo website for a fictional business, designed by <a href="../../index.html">Abhinav Sigdel</a>. Products, prices and offers are examples. Forms and order buttons do not send or store any data.</div>
 
-<nav>
+<nav aria-label="Main">
   <div class="wrap">
     <a href="#" class="logo"><i>☕</i>Himal Brew</a>
     <div class="links"><a href="#menu">Menu</a><a href="#about">About</a><a href="#gallery">Gallery</a><a href="#reserve">Visit</a></div>
@@ -101,6 +113,7 @@
   </div>
 </nav>
 
+<main id="main">
 <header class="hero">
   <div class="wrap">
     <div>
@@ -113,7 +126,7 @@
       </div>
     </div>
     <div class="art">
-      <div class="circle"><span>☕</span></div>
+      <div class="circle"><span role="img" aria-label="A cup of coffee">☕</span></div>
       <div class="sticker s1"><b>Nepali Beans</b>Roasted every week</div>
       <div class="sticker s2"><b>7 AM – 9 PM</b>Open every day</div>
     </div>
@@ -136,9 +149,9 @@
 <section class="section" id="about" style="padding-top:0">
   <div class="wrap">
     <div class="feat">
-      <div class="fc"><span class="e">🌱</span><h3>Local Beans</h3><p>Coffee sourced from farms in the hills of Nepal and roasted in small batches.</p></div>
-      <div class="fc"><span class="e">🏔️</span><h3>Lake &amp; Mountain View</h3><p>Rooftop seating with a view of the lake, perfect for sunrise and sunset.</p></div>
-      <div class="fc"><span class="e">🥐</span><h3>Baked In-House</h3><p>Croissants, cakes and breads baked fresh every morning in our kitchen.</p></div>
+      <div class="fc"><span class="e" aria-hidden="true">🌱</span><h3>Local Beans</h3><p>Coffee sourced from farms in the hills of Nepal and roasted in small batches.</p></div>
+      <div class="fc"><span class="e" aria-hidden="true">🏔️</span><h3>Lake &amp; Mountain View</h3><p>Rooftop seating with a view of the lake, perfect for sunrise and sunset.</p></div>
+      <div class="fc"><span class="e" aria-hidden="true">🥐</span><h3>Baked In-House</h3><p>Croissants, cakes and breads baked fresh every morning in our kitchen.</p></div>
     </div>
   </div>
 </section>
@@ -146,7 +159,7 @@
 <section class="section" id="gallery" style="padding-top:0">
   <div class="wrap">
     <div class="center"><div class="eyebrow">Gallery</div><h2>Moments at Himal Brew</h2></div>
-    <div class="gallery"><div class="g">☕</div><div class="g">🥐</div><div class="g">🍰</div><div class="g">🏔️</div><div class="g">🍳</div></div>
+    <div class="gallery"><div class="g" role="img" aria-label="Coffee">☕</div><div class="g" role="img" aria-label="Croissant">🥐</div><div class="g" role="img" aria-label="Cake">🍰</div><div class="g" role="img" aria-label="Mountain view">🏔️</div><div class="g" role="img" aria-label="Breakfast">🍳</div></div>
   </div>
 </section>
 
@@ -164,18 +177,20 @@
         </div>
       </div>
       <form id="book">
-        <input required placeholder="Your name">
-        <input required type="tel" placeholder="Phone number">
-        <input required type="date">
-        <select><option>Morning</option><option>Afternoon</option><option>Evening</option></select>
-        <select class="full"><option>2 people</option><option>3–4 people</option><option>5+ people</option></select>
-        <button class="btn btn-dark full" style="justify-content:center">Request Booking</button>
+        <input required placeholder="Your name" aria-label="Your name" autocomplete="name">
+        <input required type="tel" placeholder="Phone number" aria-label="Phone number" autocomplete="tel">
+        <input required type="date" aria-label="Booking date">
+        <select aria-label="Time of day"><option>Morning</option><option>Afternoon</option><option>Evening</option></select>
+        <select class="full" aria-label="Number of people"><option>2 people</option><option>3–4 people</option><option>5+ people</option></select>
+        <button class="btn btn-dark full" style="justify-content:center">Request a table booking</button>
+        <p class="consent full">Demo form: nothing you type is sent or stored. On a real site, you would agree to the café's Privacy Policy here.</p>
       </form>
     </div>
   </div>
 </section>
 
-<footer>© 2026 Himal Brew Café · Concept design by Abhinav Sigdel</footer>
+</main>
+<footer>Himal Brew Café is a fictional demo business · Design by Abhinav Sigdel · <a href="../../privacy.html" style="text-decoration:underline">Privacy</a> · <a href="../../terms.html" style="text-decoration:underline">Terms</a></footer>
 <div class="toast" id="toast"></div>
 
 <script>
@@ -198,6 +213,7 @@
     clearTimeout(tm); tm = setTimeout(() => toast.classList.remove("show"), 3500); e.target.reset();
   });
   render();
+  document.querySelectorAll("svg").forEach(s => { s.setAttribute("aria-hidden", "true"); s.setAttribute("focusable", "false"); });
 </script>
 </body>
 </html>
