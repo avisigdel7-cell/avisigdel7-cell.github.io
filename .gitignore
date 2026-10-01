@@ -2,3 +2,4 @@ _build_legal.py
 .DS_Store
 _audit.js
 _build_cards.py
+_build_csp.py
