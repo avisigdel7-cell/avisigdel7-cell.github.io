@@ -138,6 +138,17 @@
   .step h3 { font-size: 1.15rem; margin-bottom: 6px; }
   .step p { color: var(--muted); font-size: .92rem; }
 
+  /* Team */
+  .team { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 44px; }
+  .member { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 28px; display: flex; flex-direction: column; transition: .25s; }
+  .member:hover { border-color: var(--violet); transform: translateY(-4px); }
+  .member .av { width: 64px; height: 64px; border-radius: 18px; background: var(--lime); color: var(--bg); display: grid; place-items: center; font-family: "Space Grotesk"; font-weight: 700; font-size: 1.4rem; margin-bottom: 18px; }
+  .member h3 { font-size: 1.35rem; }
+  .member .role { color: var(--lime); font-weight: 600; font-size: .92rem; margin: 4px 0 10px; }
+  .member p { color: var(--muted); font-size: .95rem; }
+  .mbtns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 22px; }
+  .mbtns .btn { padding: 11px 18px; font-size: .88rem; }
+
   /* CTA */
   .cta { position: relative; overflow: hidden; border-radius: 28px; padding: 64px 40px; text-align: center; background: var(--lime); color: #111; }
   .cta h2 { font-size: clamp(2rem, 5vw, 3.4rem); max-width: 760px; margin: 0 auto 14px; }
@@ -175,6 +186,7 @@
     .hero .wrap, .project, .minis { grid-template-columns: 1fr; }
     .cards, .steps { grid-template-columns: 1fr 1fr; }
     .plans { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; }
+    .team { grid-template-columns: 1fr; max-width: 460px; margin-inline: auto; }
     .links { display: none; position: absolute; top: 72px; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--bg); border-bottom: 1px solid var(--line); }
     .links.open { display: flex; }
     .links a { padding: 14px 16px; border-top: 1px solid var(--line); }
@@ -209,6 +221,7 @@
       <a href="#work">Work</a>
       <a href="#pricing">Pricing</a>
       <a href="#process">Process</a>
+      <a href="#team">Team</a>
     </div>
     <a class="btn btn-lime" href="https://wa.me/9779766051350?text=Hi%20Abhinav!%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener" aria-label="Chat with me on WhatsApp (opens in a new tab)"><svg aria-hidden="true" focusable="false"><use href="#wa"/></svg><span>Let's talk</span></a>
   </div>
@@ -328,6 +341,46 @@
       <div class="step reveal"><h3>Free sample</h3><p>I design a sample homepage so you can see it before paying.</p></div>
       <div class="step reveal"><h3>Build</h3><p>Send your photos and details, and I build the full site.</p></div>
       <div class="step reveal"><h3>Launch</h3><p>Your site goes live, and I show you how everything works.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="team" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow">Meet the team</div>
+    <h2 class="reveal">The people behind <span class="hl">your website.</span></h2>
+    <p class="sub reveal">Tap a card to save our contact details, or message any of us on WhatsApp.</p>
+    <div class="team">
+      <article class="member reveal">
+        <div class="av" aria-hidden="true">AS</div>
+        <h3>Abhinav Sigdel</h3>
+        <p class="role">Lead · Web Designer &amp; Developer</p>
+        <p>I design and build your website and look after every project.</p>
+        <div class="mbtns">
+          <a class="btn btn-lime" href="card.html">View Abhinav's card</a>
+          <a class="btn btn-ghost" href="https://wa.me/9779766051350?text=Hi%20Abhinav!%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener">WhatsApp<span class="sr"> Abhinav (opens in a new tab)</span></a>
+        </div>
+      </article>
+      <article class="member reveal">
+        <div class="av" aria-hidden="true">SP</div>
+        <h3>Siddhartha Paudel</h3>
+        <p class="role">Sales</p>
+        <p>Your first contact. Tell me about your business and get a free design sample.</p>
+        <div class="mbtns">
+          <a class="btn btn-lime" href="card-siddhartha.html">View Siddhartha's card</a>
+          <a class="btn btn-ghost" href="https://wa.me/9779742818502?text=Hi%20Siddhartha!%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener">WhatsApp<span class="sr"> Siddhartha (opens in a new tab)</span></a>
+        </div>
+      </article>
+      <article class="member reveal">
+        <div class="av" aria-hidden="true">DD</div>
+        <h3>Dibash Dangi</h3>
+        <p class="role">Content &amp; Support</p>
+        <p>I collect your content, check every detail and help you after launch.</p>
+        <div class="mbtns">
+          <a class="btn btn-lime" href="card-dibash.html">View Dibash's card</a>
+          <a class="btn btn-ghost" href="https://wa.me/9779764735888?text=Hi%20Dibash!%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener">WhatsApp<span class="sr"> Dibash (opens in a new tab)</span></a>
+        </div>
+      </article>
     </div>
   </div>
 </section>
