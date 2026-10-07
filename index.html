@@ -143,14 +143,13 @@
   .step p { color: var(--muted); font-size: .92rem; }
 
   /* Team */
-  .team { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 44px; }
+  .team { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px; margin-top: 44px; }
   .member { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 28px; display: flex; flex-direction: column; transition: .25s; }
   .member:hover { border-color: var(--violet); transform: translateY(-4px); }
   .member .av { width: 64px; height: 64px; border-radius: 18px; background: var(--lime); color: var(--bg); display: grid; place-items: center; font-family: "Space Grotesk"; font-weight: 700; font-size: 1.4rem; margin-bottom: 18px; }
   .member h3 { font-size: 1.35rem; }
   .member .role { color: var(--lime); font-weight: 600; font-size: .92rem; margin: 4px 0 10px; }
   .member p { color: var(--muted); font-size: .95rem; }
-  @media (max-width: 1100px) { .team { grid-template-columns: repeat(2, 1fr); } }
   .mbtns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 22px; }
   .mbtns .btn { padding: 11px 18px; font-size: .88rem; }
 
@@ -389,11 +388,21 @@
       <article class="member reveal">
         <div class="av" aria-hidden="true">AS</div>
         <h3>Aashutosh Sigdel</h3>
-        <p class="role">Chief Marketing Officer</p>
-        <p>I run our Facebook and Instagram pages and reply when you message us online.</p>
+        <p class="role">Chief Sales Officer</p>
+        <p>I lead our sales. Tell me about your business and get a free design sample.</p>
         <div class="mbtns">
           <a class="btn btn-lime" href="card-aashutosh.html">View Aashutosh's card</a>
           <a class="btn btn-ghost" href="https://wa.me/9779762321313?text=Hi%20Aashutosh!%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener">WhatsApp<span class="sr"> Aashutosh (opens in a new tab)</span></a>
+        </div>
+      </article>
+      <article class="member reveal">
+        <div class="av" aria-hidden="true">HS</div>
+        <h3>Himanshu Senchuri</h3>
+        <p class="role">Chief Marketing Officer</p>
+        <p>I run our marketing and social media, and help businesses in Kathmandu get online.</p>
+        <div class="mbtns">
+          <a class="btn btn-lime" href="card-himanshu.html">View Himanshu's card</a>
+          <a class="btn btn-ghost" href="https://wa.me/9779744795036?text=Hi%20Himanshu!%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener">WhatsApp<span class="sr"> Himanshu (opens in a new tab)</span></a>
         </div>
       </article>
     </div>
