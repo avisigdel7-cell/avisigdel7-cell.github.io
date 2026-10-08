@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!-- security:start -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'sha256-DzT1dhgY3SAlwFY4hqAYcRY1IYc+1fPPKL3C9481iRQ='; style-src 'self' 'unsafe-inline'; font-src 'none'; img-src 'self' data:; frame-src 'none'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- security:end -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sajilo Web | Who We Are (video)</title>
+<meta name="description" content="Meet Sajilo Web: what we build, how it works, our prices and our team, in 3 minutes.">
+<meta name="theme-color" content="#0d0c12">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='16' fill='%23d4ff3a'/><text x='32' y='43' font-family='Arial' font-weight='900' font-size='28' text-anchor='middle' fill='%230d0c12'>SW</text></svg>">
+<style>
+  :root { --bg:#0d0c12; --card:#1a1824; --line:#2b2838; --text:#f5f3ff; --muted:#a6a1b8; --lime:#d4ff3a; --violet:#8b5cf6; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:system-ui, -apple-system, "Segoe UI", sans-serif; background:radial-gradient(900px 500px at 15% -10%, rgba(212,255,58,.12), transparent 60%), radial-gradient(900px 600px at 100% 110%, rgba(139,92,246,.18), transparent 60%), var(--bg); color:var(--text); min-height:100vh; }
+  a { color:inherit; }
+  .wrap { width:min(1180px, 100% - 32px); margin-inline:auto; padding:28px 0 60px; }
+  header { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:28px; }
+  .logo { display:flex; align-items:center; gap:10px; font-weight:800; font-size:1.2rem; text-decoration:none; }
+  .logo i { width:40px; height:40px; border-radius:11px; background:var(--lime); color:var(--bg); display:grid; place-items:center; font-style:normal; font-weight:900; }
+  h1 { font-size:clamp(1.9rem, 5vw, 3.2rem); line-height:1.05; letter-spacing:-.02em; }
+  h1 span { color:var(--lime); }
+  .sub { color:var(--muted); margin:12px 0 26px; max-width:640px; font-size:1.05rem; }
+  .player { border-radius:22px; overflow:hidden; border:1px solid var(--line); box-shadow:0 40px 100px rgba(0,0,0,.55); background:#000; }
+  video { display:block; width:100%; height:auto; aspect-ratio:16/9; background:#000; }
+  .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:24px; }
+  .btn { display:inline-flex; align-items:center; gap:10px; padding:14px 22px; border-radius:999px; font-weight:700; text-decoration:none; }
+  .btn-lime { background:var(--lime); color:var(--bg); }
+  .btn-line { border:1px solid var(--line); background:rgba(255,255,255,.04); }
+  .btn:focus-visible { outline:3px solid var(--violet); outline-offset:3px; }
+  .chapters { display:grid; grid-template-columns:repeat(auto-fit, minmax(170px, 1fr)); gap:10px; margin-top:30px; }
+  .chapters button { text-align:left; background:var(--card); border:1px solid var(--line); color:var(--text); border-radius:14px; padding:12px 14px; cursor:pointer; font:inherit; }
+  .chapters button:hover, .chapters button:focus-visible { border-color:var(--lime); outline:none; }
+  .chapters b { display:block; color:var(--lime); font-size:.8rem; }
+  footer { color:var(--muted); font-size:.85rem; margin-top:36px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header><a class="logo" href="../"><i>sw</i>Sajilo Web</a><a class="btn btn-line" href="../">Visit our website →</a></header>
+  <h1>Meet <span>Sajilo Web</span> in 3 minutes.</h1>
+  <p class="sub">What we build, how it works, our prices, and the team behind your website. Turn the sound on, or follow the subtitles.</p>
+  <div class="player">
+    <video id="v" controls playsinline preload="metadata" poster="poster.jpg">
+      <source src="sajilo-web-who-we-are.mp4" type="video/mp4">
+      Your browser can't play this video. <a href="sajilo-web-who-we-are.mp4">Download it here</a>.
+    </video>
+  </div>
+  <div class="chapters" aria-label="Jump to a chapter">
+    <button type="button" data-t="0"><b>00:00</b>Intro</button>
+    <button type="button" data-t="8.5"><b>00:08</b>What we do</button>
+    <button type="button" data-t="30.3"><b>00:30</b>Our work</button>
+    <button type="button" data-t="51.2"><b>00:51</b>How it works</button>
+    <button type="button" data-t="91.3"><b>01:31</b>Packages &amp; prices</button>
+    <button type="button" data-t="122.2"><b>02:02</b>Domain, hosting &amp; support</button>
+    <button type="button" data-t="138.9"><b>02:18</b>Meet the team</button>
+    <button type="button" data-t="179.7"><b>02:59</b>Get started</button>
+  </div>
+  <div class="actions">
+    <a class="btn btn-lime" href="https://wa.me/9779766051350?text=Hi%20Sajilo%20Web!%20I%20watched%20your%20video%20and%20I%27m%20interested%20in%20a%20website." target="_blank" rel="noopener">Chat on WhatsApp</a>
+    <a class="btn btn-line" href="../#pricing">See packages</a>
+  </div>
+  <footer>© 2026 Sajilo Web, run by Abhinav Sigdel · Kohalpur, Banke, Nepal · <a href="../privacy.html">Privacy</a></footer>
+</div>
+<script>
+  var v = document.getElementById("v");
+  document.querySelectorAll(".chapters button").forEach(function (b) {
+    b.addEventListener("click", function () { v.currentTime = parseFloat(b.dataset.t); v.play(); v.focus(); });
+  });
+</script>
+</body>
+</html>
